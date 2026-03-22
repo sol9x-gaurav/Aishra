@@ -40,11 +40,16 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
-        <li><a href="services.html">Services</a></li>
         <li><a href="project.html">Projects</a></li>
-        <li><a href="manufacturing-facility.html">Manufacturing</a></li>
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">Products</a>
+          <ul class="nav-dropdown nav-products-dd">
+            <li><a href="services-peb.html"><i class="fa fa-layer-group"></i> Services</a></li>
+            <li><a href="manufacturing-peb.html"><i class="fa fa-industry"></i> Manufacturing</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
           <ul class="nav-dropdown">
             <li class="has-dd has-nested-dd">
               <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
@@ -69,26 +74,27 @@
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">Other</a>
           <ul class="nav-dropdown">
-            <li><a href="hr-desk.html">HR Desk</a></li>
+            <li><a href="hr-desk.html">Careers</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="our-products.html">Our Products</a></li>
             <li><a href="blogs.html">Blogs</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta-wrapper">
-<a href="assets/brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
-        Download Brochure</a>
-      <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Request
-        Quote</a>
+        <a href="brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
+          Download Brochure</a>
+        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Request
+          Quote</a>
       </div>
       <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
     </div>
   </nav>
 
-  <div class="page-hero" style="background-image:url('images/bg_2.jpg');">
+  <div class="page-hero">
     <div class="container">
+      <div class="page-hero-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80');"></div>
       <div class="page-hero-content reveal">
         <div class="breadcrumb-nav"><a href="index.html">Home</a><span class="sep">›</span><span>About Us</span></div>
         <h1 class="page-hero-title">About <span class="accent">Aishra</span></h1>
@@ -232,7 +238,7 @@
 
         <!-- Director Image -->
         <div class="director-img reveal">
-          <img loading="lazy" src="images/team-4.jpg" alt="Director Aishra"
+          <img loading="lazy" src="images/director.jpg" alt="Director Aishra"
             style="border-radius:var(--radius-lg); box-shadow:var(--shadow-lg); width:100%; object-fit:cover;">
         </div>
 
@@ -255,7 +261,7 @@
           </p>
 
           <div class="director-sign">
-            <strong>Gaurav Kumar</strong><br>
+            <strong>Mr. Hemant Das</strong><br>
             <span>Managing Director</span>
           </div>
         </div>
@@ -268,7 +274,7 @@
   <section class="counter-section">
     <div class="container" style="position:relative;z-index:1;">
       <div class="counter-grid">
-        <div class="counter-card reveal"><span class="counter-number" data-target="480">0</span><span
+        <div class="counter-card reveal"><span class="counter-number" data-target="30">0</span><span
             class="counter-label">Projects Completed</span></div>
         <div class="counter-card reveal reveal-delay-1"><span class="counter-number" data-target="6">0</span><span
             class="counter-label">Years Experience</span></div>
@@ -291,7 +297,8 @@
       </div>
       <div class="machinery-grid">
         <div class="machine-card reveal">
-          <div class="machine-card-img"><img loading="lazy" src="images/cnc_plasma.png" alt="CNC Plasma Cutting"></div>
+          <div class="machine-card-img"><img loading="lazy" src="images/cnc_plasma_cleanup.png"
+              alt="CNC Plasma Cutting"></div>
           <div class="machine-card-header">
             <div class="machine-card-icon"><i class="fa fa-fire"></i></div>
             <h3 class="machine-card-title">CNC Plasma Cutting</h3>
@@ -302,7 +309,9 @@
           </div>
         </div>
         <div class="machine-card reveal reveal-delay-1">
-          <div class="machine-card-img"><img loading="lazy" src="images/cnc_drilling.png" alt="CNC Plate Drilling"></div>
+          <div class="machine-card-img"><img loading="lazy" src="images/cnc_drilling_cleanup.png"
+              alt="CNC Plate Drilling">
+          </div>
           <div class="machine-card-header">
             <div class="machine-card-icon"><i class="fa fa-drill"></i></div>
             <h3 class="machine-card-title">CNC Plate Drilling</h3>
@@ -313,7 +322,8 @@
           </div>
         </div>
         <div class="machine-card reveal reveal-delay-2">
-          <div class="machine-card-img"><img loading="lazy" src="images/robotic_arm.png" alt="Robotic Beam Stiffener"></div>
+          <div class="machine-card-img"><img loading="lazy" src="images/robotic_arm.png" alt="Robotic Beam Stiffener">
+          </div>
           <div class="machine-card-header">
             <div class="machine-card-icon"><i class="fa fa-robot"></i></div>
             <h3 class="machine-card-title">Robotic Beam Stiffener</h3>
@@ -324,7 +334,8 @@
           </div>
         </div>
         <div class="machine-card reveal">
-          <div class="machine-card-img"><img loading="lazy" src="images/ptw_welding.png" alt="PTW Beam Welding"></div>
+          <div class="machine-card-img"><img loading="lazy" src="images/intro-steel-structure-fabricator_cleanup.jpg"
+              alt="PTW Beam Welding"></div>
           <div class="machine-card-header">
             <div class="machine-card-icon"><i class="fa fa-bolt"></i></div>
             <h3 class="machine-card-title">PTW Beam Welding</h3>
@@ -335,7 +346,8 @@
           </div>
         </div>
         <div class="machine-card reveal reveal-delay-1">
-          <div class="machine-card-img"><img loading="lazy" src="images/shot_blasting.png" alt="Airless Shot Blasting"></div>
+          <div class="machine-card-img"><img loading="lazy" src="images/shot_blasting.png" alt="Airless Shot Blasting">
+          </div>
           <div class="machine-card-header">
             <div class="machine-card-icon"><i class="fa fa-wind"></i></div>
             <h3 class="machine-card-title">Airless Shot Blasting</h3>
@@ -359,6 +371,168 @@
       </div>
     </div>
   </section>
+
+
+  <!-- HERO SECTION -->
+  <div class="page-hero mfg-hero" style="background-image:url('images/mfg_hero.png');">
+    <div class="hero-overlay-dark"></div>
+    <div class="container" style="position:relative;z-index:2;">
+      <div class="page-hero-content reveal">
+        <h1 class="page-hero-title">AISHRA COMPONENTS:<br><span class="accent">Redefining Structural Excellence</span>
+        </h1>
+        <p class="hero-desc" style="margin-top:20px;max-width:800px;font-size:18px;color:rgba(255,255,255,0.85);">
+          World-class integrated manufacturing, robotic automation, CNC precision, and unparalleled structural
+          durability.</p>
+        <div class="hero-actions" style="margin-top:30px;">
+          <a href="#" class="hero-btn" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Get a
+            Quote</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CAPABILITIES LIST -->
+  <section class="section section-cream mfg-timeline-section">
+    <div class="container">
+      <div class="text-center mb-56">
+        <div class="sec-label"
+          style="justify-content:center; color: var(--primary); font-weight: 700; text-transform: uppercase;">Our
+          Production Power</div>
+        <h2 class="sec-title" style="font-size: 42px; color: var(--navy); font-weight: 800;">Manufacturing Capabilities
+        </h2>
+        <p class="sec-lead" style="margin: 20px auto 0; max-width: 600px; color: var(--text-mid); font-size: 16px;">
+          Explore the technology and workflows that allow us to build India's strongest steel structures.
+        </p>
+      </div>
+
+      <div class="mfg-grid">
+
+        <!-- 1 -->
+        <div class="mfg-card reveal">
+          <div class="mfg-img"><img loading="lazy" src="images/mfg_extreme_scale_cleanup.png"
+              alt="Extreme Scale & Versatility">
+          </div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-ruler-combined"></i></div>
+            <h3 class="mfg-title">1. Extreme Scale & Versatility</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> Built-up beams width up to 1500 mm</li>
+              <li><i class="fa fa-check"></i> Web heights up to 1420 mm</li>
+              <li><i class="fa fa-check"></i> Plate thickness: webs 25 mm, flanges 40 mm</li>
+              <li><i class="fa fa-check"></i> Tapered frames up to 15°</li>
+              <li><i class="fa fa-check"></i> Single-piece spans up to 13 meters</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 2 -->
+        <div class="mfg-card reveal reveal-delay-1">
+          <div class="mfg-img"><img loading="lazy" src="images/cnc_drilling_cleanup.png"
+              alt="CNC Precision-Drilled Plates">
+          </div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-drill"></i></div>
+            <h3 class="mfg-title">2. CNC Precision-Drilled Plates & Flanges</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> Plate thickness up to 100 mm</li>
+              <li><i class="fa fa-check"></i> 1440 RPM spindle for precision drilling</li>
+              <li><i class="fa fa-check"></i> Drilling width: 1.5 m, length: 3.0 m</li>
+              <li><i class="fa fa-check"></i> Drill size up to BT 40 (optional 50 mm)</li>
+              <li><i class="fa fa-check"></i> Clean, burr-free holes & perfect bolt alignment</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 3 -->
+        <div class="mfg-card reveal reveal-delay-2">
+          <div class="mfg-img"><img loading="lazy" src="images/cnc_plasma_cleanup.png" alt="High-Definition CNC Plasma">
+          </div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-fire"></i></div>
+            <h3 class="mfg-title">3. High-Definition CNC Plasma & Oxyfuel</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> Dual cutting: Plasma + Oxyfuel</li>
+              <li><i class="fa fa-check"></i> Cutting width: 3.0 m, length: 24.6 m</li>
+              <li><i class="fa fa-check"></i> Hypertherm MAXPRO 200 system</li>
+              <li><i class="fa fa-check"></i> Dross-free cutting up to 20 mm (Pierce up to 32 mm)</li>
+              <li><i class="fa fa-check"></i> Complex geometries and high-volume strip cutting</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 4 -->
+        <div class="mfg-card reveal">
+          <div class="mfg-img"><img loading="lazy" src="images/mfg_splice_welded.png" alt="Web Splice Welded Products">
+          </div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-link"></i></div>
+            <h3 class="mfg-title">4. Web Splice Welded Products</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> Web widths: 200 mm to 1500 mm</li>
+              <li><i class="fa fa-check"></i> Thickness: 4 mm to 25 mm</li>
+              <li><i class="fa fa-check"></i> Full penetration welds</li>
+              <li><i class="fa fa-check"></i> Maintains strength equivalent to parent metal</li>
+              <li><i class="fa fa-check"></i> Ideal for long-span PEB structures</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 5 -->
+        <div class="mfg-card reveal reveal-delay-1">
+          <div class="mfg-img"><img loading="lazy" src="images/robotic_arm.png" alt="Robotic Welding"></div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-robot"></i></div>
+            <h3 class="mfg-title">5. Robotic Welding & Structural Integrity</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> Pull-through welding</li>
+              <li><i class="fa fa-check"></i> Robotic stiffener welding</li>
+              <li><i class="fa fa-check"></i> Precision tack welding</li>
+              <li><i class="fa fa-check"></i> Automated web-to-flange assembly</li>
+              <li><i class="fa fa-check"></i> Uniform weld quality and perfect geometry</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6 -->
+        <div class="mfg-card reveal reveal-delay-2">
+          <div class="mfg-img"><img loading="lazy" src="images/spray_booth.png" alt="World-Class Surface Protection">
+          </div>
+          <div class="mfg-content">
+            <div class="mfg-icon"><i class="fa fa-shield-halved"></i></div>
+            <h3 class="mfg-title">6. World-Class Surface Protection</h3>
+            <ul class="mfg-list">
+              <li><i class="fa fa-check"></i> SA 2.5 shot blasting standard</li>
+              <li><i class="fa fa-check"></i> Epoxy primer + PU paint coating</li>
+              <li><i class="fa fa-check"></i> Dust-free paint spray booth (30,000 CFM)</li>
+              <li><i class="fa fa-check"></i> Long-lasting corrosion resistance</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Feature 7 spans full width -->
+      <div class="mfg-card mfg-card-fw reveal" style="margin-top: 32px;">
+        <div class="mfg-img"><img loading="lazy" src="images/mfg_production_line_cleanup.png"
+            alt="Rapid Project Turnaround">
+        </div>
+        <div class="mfg-content">
+          <div class="mfg-icon"><i class="fa fa-stopwatch"></i></div>
+          <h3 class="mfg-title">7. Rapid Project Turnaround</h3>
+          <ul class="mfg-list" style="column-count: 2; column-gap: 30px;">
+            <li><i class="fa fa-check"></i> High-speed CNC processing</li>
+            <li><i class="fa fa-check"></i> 6-torch strip cutting capability</li>
+            <li><i class="fa fa-check"></i> Fully integrated workflow (cutting → drilling → welding → painting)</li>
+            <li><i class="fa fa-check"></i> Single-source solution with reduced delays</li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+
 
   <!-- TEAM -->
   <section class="section section-white">
@@ -466,44 +640,62 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="footer-top">
       <div class="container">
         <div class="footer-grid">
-          <div><img loading="lazy" src="images/logo.png" alt="Aishra" class="footer-brand-logo">
-            <p class="footer-brand-desc">Aishra Technofab Engineers — complete PEB and steel structure solutions across
-              India since 2018.</p>
-            <div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a><a
-                href="#" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#"
-                class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a></div>
+          <!-- Column 1: Branding -->
+          <div>
+            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
+              class="footer-brand-logo">
+            <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
           </div>
+
+          <!-- Column 2: Quick Links -->
           <div>
             <div class="footer-heading">Quick Links</div>
             <ul class="footer-links">
               <li><a href="index.html"><i class="fa fa-chevron-right"></i> Home</a></li>
               <li><a href="about.html"><i class="fa fa-chevron-right"></i> About Us</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Services</a></li>
               <li><a href="project.html"><i class="fa fa-chevron-right"></i> Projects</a></li>
+              <li><a href="services-peb.html"><i class="fa fa-chevron-right"></i> Services</a></li>
+              <li><a href="manufacturing-peb.html"><i class="fa fa-chevron-right"></i> Manufacturing</a></li>
+              <li><a href="contact.html"><i class="fa fa-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
+
+          <!-- Column 3: Company -->
           <div>
-            <div class="footer-heading">Services</div>
+            <div class="footer-heading">Company</div>
             <ul class="footer-links">
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> PEB Design & Engineering</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Fabrication & Manufacturing</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Installation & Erection</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Turnkey Solutions</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Industrial Shed & Warehouse</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Pre Engineered Buildings</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Z & C Purlins</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Ceiling System</a></li>
+              <li><a href="hr-desk.html"><i class="fa fa-chevron-right"></i> Careers</a></li>
+              <li><a href="gallery.html"><i class="fa fa-chevron-right"></i> Gallery</a></li>
+              <li><a href="blogs.html"><i class="fa fa-chevron-right"></i> Blogs</a></li>
             </ul>
           </div>
+
+          <!-- Column 4: Contact Us -->
           <div>
-            <div class="footer-heading">Contact</div>
+            <div class="footer-heading">Contact Us</div>
             <ul class="footer-contact-list">
-              <li class="footer-contact-item"><span class="icon"><i class="fa fa-location-dot"></i></span><span>NS-11,
-                  BIADA Gate No.5, Patliputra Industrial Area, Patna – 800013</span></li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-building"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">HEAD
+                    OFFICE</strong><br>NS-11, Plot NS-11, 1st Plot at BIADA, Gate No.5, Patliputra Industrial Area,
+                  Patna – 800013</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-industry"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">PEB
+                    DIVISION</strong><br>Plot IP-1,2,3&amp;4, Industrial Area Goraul Phase-II, Saraiya, Muzaffarpur,
+                  Bihar – 843126</div>
+              </li>
               <li class="footer-contact-item"><span class="icon"><i class="fa fa-phone"></i></span>
                 <div><a href="tel:+917463843731">+91 74638 43731</a><br><a href="tel:+919229893797">+91 92298 93797</a>
                 </div>
@@ -517,12 +709,22 @@
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container">
-        <div class="footer-bottom-inner"><span>©
+        <div class="footer-bottom-inner"
+          style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center;">
+          <span>©
             <script>document.write(new Date().getFullYear())</script> <span class="hl">Aishra Technofab
               Engineers</span>. All rights reserved.
-          </span><span>www.aishra.in</span></div>
+          </span>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Terms & Conditions</a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>

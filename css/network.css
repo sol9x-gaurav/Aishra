@@ -1,0 +1,513 @@
+/* Network Section Upgrade */
+.network-section-premium {
+  padding: 100px 0;
+  background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.network-grid-premium {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+/* Form Column */
+.network-form-col {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: var(--radius-lg, 16px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  z-index: 2;
+}
+
+.network-form-col .sec-title-network {
+  font-size: 32px;
+  font-weight: 800;
+  color: var(--navy);
+  margin-bottom: 16px;
+  line-height: 1.25;
+}
+
+.network-form-col .sec-lead {
+  color: var(--text-mid);
+  font-size: 16px;
+  margin-bottom: 30px;
+  line-height: 1.6;
+}
+
+.premium-form .form-row {
+  margin-bottom: 20px;
+}
+
+.premium-form .form-row.split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.premium-input,
+.premium-textarea {
+  width: 100%;
+  padding: 16px 20px;
+  background: #f4f6f8;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.premium-input:focus,
+.premium-textarea:focus {
+  outline: none;
+  background: #fff;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 4px rgba(232, 93, 4, 0.1);
+}
+
+.premium-textarea {
+  height: 120px;
+  resize: vertical;
+}
+
+.premium-submit-btn {
+  width: 100%;
+  background: var(--navy);
+  color: #fff;
+  border: none;
+  padding: 18px;
+  font-size: 16px;
+  font-weight: 700;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.premium-submit-btn:hover {
+  background: var(--primary);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(232, 93, 4, 0.3);
+}
+
+/* Map Column */
+.network-map-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* Update these specific classes in your CSS file */
+
+.network-map-col {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  /* Limits size so it doesn't explode on big screens */
+  margin: 0 auto;
+}
+
+.india-map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.1));
+  pointer-events: none;
+}
+
+/* Updated Pin Positioning - Adjust % values to fit your specific map image */
+.map-pin.pin-patna {
+  top: 48%;
+  left: 74%;
+  /* Changed from 'right' to 'left' for more consistent scaling */
+}
+
+.map-pin.pin-muzaffarpur {
+  top: 43%;
+  left: 72%;
+}
+
+/* Ensure labels show up correctly */
+.map-pin:hover .pin-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(10px);
+  pointer-events: auto;
+}
+
+/* Legend adjustment */
+.map-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 30px;
+  /* Use positive margin now that we aren't using the padding-hack */
+  width: 100%;
+}
+
+.pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  position: relative;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.8);
+}
+
+.pin-dot.hq {
+  background: var(--primary);
+}
+
+.pin-dot.factory {
+  background: var(--navy);
+}
+
+/* Pulse Animation */
+.pin-dot::after {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: inherit;
+  animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite;
+  z-index: -1;
+  opacity: 0.6;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.5);
+    opacity: 0.6;
+  }
+
+  100% {
+    transform: scale(2.5);
+    opacity: 0;
+  }
+}
+
+.pin-label {
+  position: absolute;
+  left: 28px;
+  top: 50%;
+  background: #fff;
+  padding: 10px 15px;
+  /* Compact padding */
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+  opacity: 0;
+  transform: translateY(-50%) translateX(10px);
+  transition: all 0.3s ease;
+  pointer-events: none;
+  width: 160px;
+  /* Reduced width for clean look */
+  border-left: 3px solid var(--primary);
+  z-index: 100;
+}
+
+.map-pin:hover .pin-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+.pin-label strong {
+  display: block;
+  color: var(--navy);
+  font-size: 14px;
+  line-height: 1.2;
+}
+
+.pin-label .subtitle {
+  display: block;
+  font-size: 10px;
+  color: var(--primary);
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 2px;
+}
+
+.pin-label span.address {
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: normal;
+  font-size: 12px;
+  color: var(--text-mid);
+  display: block;
+  margin-top: 6px;
+  line-height: 1.4;
+}
+
+.map-pin {
+  padding: 10px;
+  /* Larger hit area for mouse hover */
+  margin: -10px;
+}
+
+.map-pin.pin-patna {
+  top: 48%;
+  right: 26%;
+}
+
+.map-pin.pin-muzaffarpur {
+  top: 45%;
+  right: 28%;
+}
+
+.map-legend {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: -30px;
+  position: relative;
+  z-index: 5;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-mid);
+  font-weight: 600;
+  background: #fff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.legend-item .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+@media (max-width: 992px) {
+  .network-grid-premium {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .network-form-col {
+    padding: 30px 20px;
+  }
+
+  .premium-form .form-row.split {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+
+
+
+/* 1. Remove Card Styling */
+.network-form-col {
+  background: transparent;
+  /* Removed white background */
+  padding: 0;
+  /* Removed internal padding */
+  border-radius: 0;
+  box-shadow: none;
+  /* Removed shadow */
+  border: none;
+  /* Removed border */
+  position: relative;
+  z-index: 2;
+}
+
+/* 2. Optional: Refine Inputs for a "Flat" look */
+.premium-input,
+.premium-textarea {
+  width: 100%;
+  padding: 14px 5px;
+  /* Padding only on top/bottom */
+  background: transparent;
+  /* Transparent background */
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* Simple underline */
+  border-radius: 5px;
+  font-size: 16px;
+  color: #333;
+  transition: all 0.3s ease;
+  font-family: inherit;
+}
+
+.premium-input:focus,
+.premium-textarea:focus {
+  outline: none;
+  background: transparent;
+  border-bottom-color: var(--primary);
+  /* Underline changes color on focus */
+  box-shadow: none;
+}
+
+/* 3. Adjust spacing for the new layout */
+.premium-form .form-row {
+  margin-bottom: 25px;
+}
+
+/* 4. Keep button prominent since the card is gone */
+.premium-submit-btn {
+  margin-top: 10px;
+  width: auto;
+  /* Button no longer needs to be full width */
+  padding: 16px 40px;
+  border-radius: 4px;
+}
+
+
+
+
+/* --- Map Column Wrapper --- */
+.map-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 800px;
+  /* Increased for the 16:9 high-res image */
+  margin: 0 auto;
+}
+
+.india-map-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  /* Optional: slight shadow to make the white map pop if your section bg is also white */
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.05));
+}
+
+/* --- Pin Positioning --- */
+/* These coordinates are tuned for the Bihar region on your specific map image */
+
+.map-pin.pin-patna {
+  top: 41%;
+  left: 56.5%;
+}
+
+.map-pin.pin-muzaffarpur {
+  top: 38.5%;
+  left: 57.2%;
+}
+
+/* --- Modern Tooltip Labels --- */
+.pin-label {
+  position: absolute;
+  left: 35px;
+  /* Spaced away from the pin */
+  top: 50%;
+  transform: translateY(-50%) translateX(15px);
+  background: #ffffff;
+  padding: 15px 20px;
+  border-radius: 10px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+  width: 280px;
+  /* Wider to accommodate the full address */
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  z-index: 100;
+}
+
+/* Accent lines for labels */
+.map-pin.pin-patna .pin-label {
+  border-left: 4px solid #d4af37;
+  /* Gold for HQ */
+}
+
+.map-pin.pin-muzaffarpur .pin-label {
+  border-left: 4px solid #e85d04;
+  /* Orange for PEB */
+}
+
+.map-pin:hover .pin-label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* Tooltip Typography */
+.pin-label strong {
+  display: block;
+  font-size: 14px;
+  color: #0a192f;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 4px;
+}
+
+.pin-label .address {
+  display: block;
+  font-size: 12px;
+  line-height: 1.5;
+  color: #555;
+  font-weight: 400;
+}
+
+/* --- Glowing Dot Styles --- */
+.pin-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  display: block;
+  position: relative;
+  background: #000;
+  border: 2px solid #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+}
+
+.pin-dot.hq {
+  background: #d4af37;
+}
+
+/* Gold */
+.pin-dot.factory {
+  background: #e85d04;
+}
+
+/* Orange */
+
+/* Pulse Effect */
+.pin-dot::after {
+  content: '';
+  position: absolute;
+  top: -8px;
+  left: -8px;
+  right: -8px;
+  bottom: -8px;
+  border-radius: 50%;
+  background: inherit;
+  animation: pulse-ring 2.5s infinite;
+  opacity: 0.3;
+}
+
+@keyframes pulse-ring {
+  0% {
+    transform: scale(0.6);
+    opacity: 0.5;
+  }
+
+  100% {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}

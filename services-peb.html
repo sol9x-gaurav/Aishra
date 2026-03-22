@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Services — Aishra Technofab Engineers</title>
+  <meta name="description"
+    content="Aishra Technofab Engineers offers end-to-end PEB services: design, fabrication, installation, project management and maintenance across India.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito+Sans:wght@300;400;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <style>
+    /* ---- Services page specific ---- */
+    .svc-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 28px;
+    }
+
+    .svc-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 36px 28px;
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .svc-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transition: transform 0.3s ease;
+    }
+
+    .svc-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-md);
+      border-color: transparent;
+    }
+
+    .svc-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .svc-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary-lt);
+      border: 2px solid rgba(232, 93, 4, 0.2);
+      border-radius: var(--radius);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      color: var(--primary);
+      margin-bottom: 20px;
+    }
+
+    .svc-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+
+    .svc-desc {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 1.75;
+    }
+
+    .svc-num {
+      position: absolute;
+      top: 20px;
+      right: 24px;
+      font-family: var(--font-mono);
+      font-size: 36px;
+      font-weight: 700;
+      color: rgba(26, 39, 68, 0.05);
+      line-height: 1;
+    }
+
+    /* Process strip */
+    .process-strip {
+      background: var(--navy);
+      padding: 56px 0;
+    }
+
+    .process-strip-inner {
+      display: flex;
+      align-items: flex-start;
+      gap: 0;
+    }
+
+    .ps-step {
+      flex: 1;
+      text-align: center;
+      padding: 0 20px;
+      position: relative;
+    }
+
+    .ps-step::after {
+      content: '';
+      position: absolute;
+      top: 28px;
+      right: -1px;
+      width: 2px;
+      height: 24px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .ps-step:last-child::after {
+      display: none;
+    }
+
+    .ps-num {
+      width: 56px;
+      height: 56px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 16px;
+      font-weight: 700;
+      color: #fff;
+      margin: 0 auto 14px;
+    }
+
+    .ps-title {
+      font-family: var(--font-display);
+      font-size: 16px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .ps-desc {
+      font-size: 12px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.55;
+    }
+
+    @media (max-width: 992px) {
+      .svc-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .process-strip-inner {
+        flex-wrap: wrap;
+      }
+
+      .ps-step {
+        flex: calc(50% - 20px);
+        margin-bottom: 28px;
+      }
+
+      .ps-step::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 600px) {
+      .svc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ps-step {
+        flex: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-ring"></div>
+    <div class="loader-brand">Aishra Technofab</div>
+  </div>
+
+  <div class="top-bar">✦ Established August 2018 &nbsp;|&nbsp; <span class="hl">Complete PEB Solutions</span>
+    &nbsp;|&nbsp; Pan-India Delivery &nbsp;|&nbsp; <span class="hl">www.aishra.in</span> ✦</div>
+
+  <header class="header-info">
+    <div class="container">
+      <div class="brand-logo"><a href="index.html"><img loading="lazy" src="images/logo.png"
+            alt="Aishra Technofab Engineers"></a></div>
+      <div class="header-contact-item">
+        <div class="header-icon-wrap"><i class="fa fa-phone"></i></div>
+        <div class="header-contact-text"><span class="label">Call / Enquiry</span><strong>+91 74638
+            43731</strong><small>+91 92298 93797</small></div>
+      </div>
+      <div class="header-contact-item">
+        <div class="header-icon-wrap"><i class="fa fa-envelope"></i></div>
+        <div class="header-contact-text"><span class="label">Email
+            Us</span><strong>Info@aishra.in</strong><small>projects.aishra@gmail.com</small></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle active">Products</a>
+          <ul class="nav-dropdown nav-products-dd">
+            <li><a href="services-peb.html"><i class="fa fa-layer-group"></i> Services</a></li>
+            <li><a href="manufacturing-peb.html"><i class="fa fa-industry"></i> Manufacturing</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
+          <ul class="nav-dropdown">
+            <li class="has-dd has-nested-dd">
+              <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
+              <ul class="nav-nested-dropdown">
+                <li><a href="products/pre-engineered-buildings.html">Pre-Engineered Buildings</a></li>
+                <li><a href="products/multistory-buildings.html">Multistory Buildings</a></li>
+                <li><a href="products/steel-structure-fabricator.html">Steel Structure Fabricator</a></li>
+                <li><a href="products/structural-steel-fabricator.html">Structural Steel Fabricator</a></li>
+                <li><a href="products/pre-engineered-structural-steel.html">Pre-Engineered Structural Steel</a></li>
+              </ul>
+            </li>
+            <li><a href="products/lgsf.html">LGSF</a></li>
+            <li><a href="products/puf-panel.html">PUF Panel</a></li>
+            <li><a href="products/purlin-girt.html">Purlin / Girt</a></li>
+            <li><a href="products/roofing-sheet.html">Roofing Sheet</a></li>
+            <li><a href="products/space-frame.html">Space Frame</a></li>
+            <li><a href="products/tensile-fabric.html">Tensile Fabric</a></li>
+            <li><a href="products/air-ventilation.html">Air Ventilation</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">Other</a>
+          <ul class="nav-dropdown">
+            <li><a href="hr-desk.html">Careers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta-wrapper">
+        <a href="brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
+          <span>Download Brochure</span></a>
+        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> <span>Request
+            Quote</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80');"></div>
+      <div class="page-hero-content reveal">
+        <div class="breadcrumb-nav">
+          <a href="index.html">Home</a><span class="sep">›</span>
+          <a href="#">Products</a><span class="sep">›</span>
+          <span>Services</span>
+        </div>
+        <h1 class="page-hero-title">Our <span class="accent">Services</span></h1>
+        <p style="color:rgba(255,255,255,0.72);font-size:16px;max-width:520px;margin-top:14px;line-height:1.75;">
+          End-to-end Pre-Engineered Building solutions — from concept design to final handover, anywhere in India.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SERVICES GRID -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="text-center mb-56">
+        <div class="sec-label" style="justify-content:center;">What We Offer</div>
+        <h2 class="sec-title">Core Services</h2>
+        <p class="sec-lead" style="margin:0 auto;">Six specialised capabilities that cover every phase of your PEB
+          project.</p>
+      </div>
+      <!-- <div class="svc-grid">
+
+        <div class="svc-card reveal">
+          <span class="svc-num">01</span>
+          <div class="svc-icon"><i class="fa fa-building"></i></div>
+          <div class="svc-title">PEB Building Systems</div>
+          <p class="svc-desc">Factory-manufactured primary and secondary steel framing systems — designed for rapid
+            on-site assembly with minimal waste and maximum structural efficiency.</p>
+        </div>
+
+        <div class="svc-card reveal reveal-delay-1">
+          <span class="svc-num">02</span>
+          <div class="svc-icon"><i class="fa fa-layer-group"></i></div>
+          <div class="svc-title">LGSF Structures</div>
+          <p class="svc-desc">Light Gauge Steel Frame construction for residential, commercial and modular applications
+            — lightweight, corrosion-resistant and seismically compliant.</p>
+        </div>
+
+        <div class="svc-card reveal reveal-delay-2">
+          <span class="svc-num">03</span>
+          <div class="svc-icon"><i class="fa fa-drafting-compass"></i></div>
+          <div class="svc-title">Design &amp; Engineering</div>
+          <p class="svc-desc">3D structural modelling, load analysis and detailed fabrication drawings per IS, AISC and
+            international codes — delivered by our in-house engineering team.</p>
+        </div>
+
+        <div class="svc-card reveal">
+          <span class="svc-num">04</span>
+          <div class="svc-icon"><i class="fa fa-hard-hat"></i></div>
+          <div class="svc-title">Installation &amp; Erection</div>
+          <p class="svc-desc">Skilled erection crews with heavy-lift cranes, safety-certified rigging and strict QC
+            protocols — ensuring precise, on-schedule structural assembly.</p>
+        </div>
+
+        <div class="svc-card reveal reveal-delay-1">
+          <span class="svc-num">05</span>
+          <div class="svc-icon"><i class="fa fa-chart-gantt"></i></div>
+          <div class="svc-title">Project Management</div>
+          <p class="svc-desc">Dedicated project managers overseeing procurement, scheduling, site coordination and
+            client communication from kickoff to handover.</p>
+        </div>
+
+        <div class="svc-card reveal reveal-delay-2">
+          <span class="svc-num">06</span>
+          <div class="svc-icon"><i class="fa fa-screwdriver-wrench"></i></div>
+          <div class="svc-title">Maintenance &amp; Support</div>
+          <p class="svc-desc">Post-completion inspection, preventive maintenance programmes and rapid-response support
+            to keep your structure performing at peak condition.</p>
+        </div>
+
+      </div> -->
+
+
+      <div class="services-grid">
+        <div class="service-card reveal">
+          <div class="service-card-img"><img src="images/service1.png" alt="PEB Design & Engineering" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-drafting-compass"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">01 — Structural Systems</span>
+            <h3 class="service-card-title">PEB Building Systems</h3>
+            <p class="service-card-desc">Factory-manufactured primary and secondary steel framing systems — designed for
+              rapid
+              on-site assembly with minimal waste and maximum structural efficiency.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-card-img"><img src="images/service2.png" alt="Fabrication & Manufacturing" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-industry"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">02 — Modular Construction</span>
+            <h3 class="service-card-title">LGSF Structures</h3>
+            <p class="service-card-desc">Light Gauge Steel Frame construction for residential, commercial and modular
+              applications
+              — lightweight, corrosion-resistant and seismically compliant.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-card-img"><img src="images/service3.png" alt="Installation & Erection" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-screwdriver-wrench"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">03 — Design & Engineering</span>
+            <h3 class="service-card-title">Design &amp; Engineering</h3>
+            <p class="service-card-desc">3D structural modelling, load analysis and detailed fabrication drawings per
+              IS, AISC and
+              international codes — delivered by our in-house engineering team.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal">
+          <div class="service-card-img"><img src="images/services4.png" alt="Turnkey Solutions" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-diagram-project"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">04 — Installation & Erection</span>
+            <h3 class="service-card-title">Installation &amp; Erection</h3>
+            <p class="service-card-desc">Skilled erection crews with heavy-lift cranes, safety-certified rigging and
+              strict QC
+              protocols — ensuring precise, on-schedule structural assembly.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-1">
+          <div class="service-card-img"><img src="images/service5.png" alt="Industrial Shed & Warehouse" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-warehouse"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">05 — Project Management</span>
+            <h3 class="service-card-title">Project Management</h3>
+            <p class="service-card-desc">Dedicated project managers overseeing procurement, scheduling, site
+              coordination and
+              client communication from kickoff to handover.</p>
+          </div>
+        </div>
+
+        <div class="service-card reveal reveal-delay-2">
+          <div class="service-card-img"><img src="images/service6.png" alt="Pre Engineered Buildings" loading="lazy">
+            <div class="service-card-icon"><i class="fa fa-building"></i></div>
+          </div>
+          <div class="service-card-body"><span class="service-card-num">06 — Maintenance & Support</span>
+            <h3 class="service-card-title">Maintenance &amp; Supports</h3>
+            <p class="service-card-desc">Post-completion inspection, preventive maintenance programmes and
+              rapid-response support
+              to keep your structure performing at peak condition.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS STRIP -->
+  <div class="process-strip">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="sec-label" style="justify-content:center;color:var(--gold);">How We Work</div>
+        <h2 class="sec-title" style="color:#fff;">Our Delivery Process</h2>
+      </div>
+      <div class="process-strip-inner">
+        <div class="ps-step">
+          <div class="ps-num">01</div>
+          <div class="ps-title">Site Consultation</div>
+          <p class="ps-desc">On-site assessment, requirement gathering and feasibility study</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">02</div>
+          <div class="ps-title">Design</div>
+          <p class="ps-desc">Structural design, 3D modelling and drawing approval</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">03</div>
+          <div class="ps-title">Manufacturing</div>
+          <p class="ps-desc">CNC fabrication, robotic welding, SA 2.5 blasting and PU painting</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">04</div>
+          <div class="ps-title">Delivery</div>
+          <p class="ps-desc">Pan-India logistics with damage-free, on-time component delivery</p>
+        </div>
+        <div class="ps-step">
+          <div class="ps-num">05</div>
+          <div class="ps-title">Erection</div>
+          <p class="ps-desc">Site assembly, QC inspection and final handover with documentation</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- PEB ADVANTAGES -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="text-center mb-40">
+        <div class="sec-label" style="justify-content:center;">Why PEB?</div>
+        <h2 class="sec-title">PEB vs Conventional Steel Building</h2>
+        <p class="sec-lead" style="margin:0 auto;">Pre-Engineered Buildings consistently outperform conventional
+          construction across every measurable dimension.</p>
+      </div>
+      <div style="overflow-x:auto;" class="reveal">
+        <table class="adv-table">
+          <thead>
+            <tr>
+              <th>Parameter</th>
+              <th>Pre-Engineered Building</th>
+              <th>Conventional Building</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Construction Time</td>
+              <td class="peb-val">Usually Lower — faster erection</td>
+              <td class="csb-val">Typically Higher</td>
+            </tr>
+            <tr>
+              <td>Material Cost</td>
+              <td class="peb-val">Economical optimized steel usage</td>
+              <td class="csb-val">Material variety leads to fluctuating costs</td>
+            </tr>
+            <tr>
+              <td>Labour Cost</td>
+              <td class="peb-val">Usually Lower</td>
+              <td class="csb-val">Typically Higher</td>
+            </tr>
+            <tr>
+              <td>Foundation</td>
+              <td class="peb-val">Simple design — easy to construct</td>
+              <td class="csb-val">Extensive heavy foundation required</td>
+            </tr>
+            <tr>
+              <td>Structure Weight</td>
+              <td class="peb-val">30% lighter on average</td>
+              <td class="csb-val">Made up of heavy building components</td>
+            </tr>
+            <tr>
+              <td>Flexibility</td>
+              <td class="peb-val">Future expansion easy and simple</td>
+              <td class="csb-val">Future expansion is tedious and costly</td>
+            </tr>
+            <tr>
+              <td>Long-Term Maintenance</td>
+              <td class="peb-val">Lower maintenance cost</td>
+              <td class="csb-val">Varies based on materials used</td>
+            </tr>
+            <tr>
+              <td>Seismic Resistance</td>
+              <td class="peb-val">Higher resistance to seismic forces</td>
+              <td class="csb-val">Doesn't perform well in Seismic Zones</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container" style="position:relative;">
+      <h2>Ready to Start Your Project?</h2>
+      <p>Talk to our engineers today — free consultation, no obligation.</p>
+      <a href="#" class="btn-outline-white" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i>
+        Request a Free Quote</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Column 1: Branding -->
+          <div>
+            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
+              class="footer-brand-logo">
+            <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <div class="footer-heading">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="index.html"><i class="fa fa-chevron-right"></i> Home</a></li>
+              <li><a href="about.html"><i class="fa fa-chevron-right"></i> About Us</a></li>
+              <li><a href="project.html"><i class="fa fa-chevron-right"></i> Projects</a></li>
+              <li><a href="services-peb.html"><i class="fa fa-chevron-right"></i> Services</a></li>
+              <li><a href="manufacturing-peb.html"><i class="fa fa-chevron-right"></i> Manufacturing</a></li>
+              <li><a href="contact.html"><i class="fa fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Company -->
+          <div>
+            <div class="footer-heading">Company</div>
+            <ul class="footer-links">
+              <li><a href="hr-desk.html"><i class="fa fa-chevron-right"></i> Careers</a></li>
+              <li><a href="gallery.html"><i class="fa fa-chevron-right"></i> Gallery</a></li>
+              <li><a href="blogs.html"><i class="fa fa-chevron-right"></i> Blogs</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Us -->
+          <div>
+            <div class="footer-heading">Contact Us</div>
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-building"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">HEAD
+                    OFFICE</strong><br>NS-11, Plot NS-11, 1st Plot at BIADA, Gate No.5, Patliputra Industrial Area,
+                  Patna – 800013</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-industry"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">PEB
+                    DIVISION</strong><br>Plot IP-1,2,3&amp;4, Industrial Area Goraul Phase-II, Saraiya, Muzaffarpur,
+                  Bihar – 843126</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-phone"></i></span>
+                <div><a href="tel:+917463843731">+91 74638 43731</a><br><a href="tel:+919229893797">+91 92298 93797</a>
+                </div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-envelope"></i></span>
+                <div><a href="mailto:Info@aishra.in">Info@aishra.in</a><br><a
+                    href="mailto:projects.aishra@gmail.com">projects.aishra@gmail.com</a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner"
+          style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center;">
+          <span>©
+            <script>document.write(new Date().getFullYear())</script> <span class="hl">Aishra Technofab
+              Engineers</span>. All rights reserved.
+          </span>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QUOTE MODAL -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fa fa-times"></i></button>
+      <h2 class="modal-title">Request a Quote</h2>
+      <p class="modal-subtitle">Fill in your details and we'll get back to you within 24 hours.</p>
+      <form onsubmit="return false;">
+        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input"
+            placeholder="Your name"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input"
+            placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input"
+            placeholder="you@example.com"></div>
+        <div class="form-group"><label class="form-label">Project Type</label>
+          <select class="form-select">
+            <option value="">Select a service</option>
+            <option>PEB Building System</option>
+            <option>LGSF Structure</option>
+            <option>Design &amp; Engineering</option>
+            <option>Installation &amp; Erection</option>
+            <option>Project Management</option>
+            <option>Maintenance &amp; Support</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea"
+            placeholder="Describe your project requirements..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><i
+            class="fa fa-paper-plane"></i> Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    /* Loader */
+    window.addEventListener('load', () => { setTimeout(() => document.getElementById('pageLoader').classList.add('hidden'), 400); });
+
+    /* Nav toggle */
+    document.getElementById('navToggle').addEventListener('click', () => {
+      document.getElementById('navLinks').classList.toggle('open');
+    });
+
+    /* Mobile dropdown toggle */
+    document.querySelectorAll('.dropdown-toggle').forEach(item => {
+      item.addEventListener('click', function (e) {
+        if (window.innerWidth <= 992) {
+          e.preventDefault();
+          const parent = this.parentElement;
+          parent.classList.toggle('open');
+        }
+      });
+    });
+
+    /* Modal */
+    function openModal() { document.getElementById('quoteModal').classList.add('active'); }
+    function closeModal() { document.getElementById('quoteModal').classList.remove('active'); }
+    document.getElementById('quoteModal').addEventListener('click', e => { if (e.target === document.getElementById('quoteModal')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+
+    /* Scroll reveal */
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

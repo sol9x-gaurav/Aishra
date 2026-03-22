@@ -11,6 +11,7 @@
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="css/custom.css">
+  <link rel="stylesheet" href="css/projects.css">
 </head>
 
 <body>
@@ -40,11 +41,16 @@
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
         <li><a href="project.html">Projects</a></li>
-        <li><a href="manufacturing-facility.html">Manufacturing</a></li>
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">Products</a>
+          <ul class="nav-dropdown nav-products-dd">
+            <li><a href="services-peb.html"><i class="fa fa-layer-group"></i> Services</a></li>
+            <li><a href="manufacturing-peb.html"><i class="fa fa-industry"></i> Manufacturing</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
           <ul class="nav-dropdown">
             <li class="has-dd has-nested-dd">
               <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
@@ -69,16 +75,15 @@
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">Other</a>
           <ul class="nav-dropdown">
-            <li><a href="hr-desk.html">HR Desk</a></li>
+            <li><a href="hr-desk.html">Careers</a></li>
             <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="our-products.html">Our Products</a></li>
             <li><a href="blogs.html">Blogs</a></li>
           </ul>
         </li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta-wrapper">
-        <a href="assets/brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
+        <a href="brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
           Download Brochure</a>
         <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Request
           Quote</a>
@@ -86,7 +91,9 @@
       <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
     </div>
   </nav>
-  <div class="page-hero" style="background-image:url('images/bg_2.jpg');">
+  <div class="page-hero">
+    <div class="page-hero-bg"
+      style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80');"></div>
     <div class="container">
       <div class="page-hero-content reveal">
         <div class="breadcrumb-nav"><a href="index.html">Home</a><span class="sep">›</span><span>Projects</span></div>
@@ -129,7 +136,7 @@
           </div>
           <div class="project-card-btn"><i class="fa fa-expand"></i></div>
         </div>
-        <div class="project-card reveal">
+        <!-- <div class="project-card reveal">
           <img loading="lazy" src="images/project-1.jpg" alt="Warehouse">
           <div class="project-overlay"><span class="project-cat">Industrial — Warehouse</span>
             <h3 class="project-name">Industrial Warehouse Complex</h3>
@@ -152,7 +159,67 @@
             <p class="project-loc"><i class="fa fa-location-dot"></i> Hyderabad, Telangana, IND</p>
           </div>
           <div class="project-card-btn"><i class="fa fa-expand"></i></div>
+        </div> -->
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- FUTURE GOALS SECTION -->
+  <section class="section section-cream">
+    <div class="container">
+      <div class="text-center mb-56">
+        <div class="sec-label" style="justify-content:center;">Our Journey Ahead</div>
+        <h2 class="sec-title">Growth Plans & Future Goals</h2>
+        <p class="sec-lead" style="margin:0 auto; max-width: 700px;">
+          Driven by innovation and excellence, we are committed to expanding our capabilities,
+          embracing new technologies, and delivering even greater value to our clients.
+        </p>
+      </div>
+
+      <div class="future-grid">
+
+        <!-- Goal 1 -->
+        <div class="future-card reveal">
+          <div class="future-icon"><i class="fa fa-industry"></i></div>
+          <h3 class="future-title">Capacity Expansion</h3>
+          <p class="future-text">
+            Increasing manufacturing capacity with advanced machinery and automation
+            to handle large-scale infrastructure and industrial projects efficiently.
+          </p>
         </div>
+
+        <!-- Goal 2 -->
+        <div class="future-card reveal reveal-delay-1">
+          <div class="future-icon"><i class="fa fa-microchip"></i></div>
+          <h3 class="future-title">Technology Integration</h3>
+          <p class="future-text">
+            Adopting cutting-edge design tools, AI-based planning, and smart fabrication
+            processes for precision and faster project delivery.
+          </p>
+        </div>
+
+        <!-- Goal 3 -->
+        <div class="future-card reveal reveal-delay-2">
+          <div class="future-icon"><i class="fa fa-globe"></i></div>
+          <h3 class="future-title">Pan-India Expansion</h3>
+          <p class="future-text">
+            Strengthening our presence across India with new project sites and partnerships
+            in both government and private sectors.
+          </p>
+        </div>
+
+        <!-- Goal 4 -->
+        <div class="future-card reveal">
+          <div class="future-icon"><i class="fa fa-leaf"></i></div>
+          <h3 class="future-title">Sustainable Solutions</h3>
+          <p class="future-text">
+            Focusing on eco-friendly construction practices, energy-efficient structures,
+            and sustainable material usage for a greener future.
+          </p>
+        </div>
+
       </div>
     </div>
   </section>
@@ -293,61 +360,91 @@
     </div>
   </div>
 
-  <footer class="footer">
+  <footer class="footer" id="contact">
     <div class="footer-top">
       <div class="container">
         <div class="footer-grid">
-          <div><img loading="lazy" src="images/logo.png" alt="Aishra" class="footer-brand-logo">
-            <p class="footer-brand-desc">Aishra Technofab Engineers — complete PEB and steel structure solutions across
-              India since 2018.</p>
-            <div class="footer-socials"><a href="#" class="footer-social-btn"><i class="fa-brands fa-twitter"></i></a><a
-                href="#" class="footer-social-btn"><i class="fa-brands fa-facebook-f"></i></a><a href="#"
-                class="footer-social-btn"><i class="fa-brands fa-instagram"></i></a></div>
+          <!-- Column 1: Branding -->
+          <div>
+            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
+              class="footer-brand-logo">
+            <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
           </div>
+
+          <!-- Column 2: Quick Links -->
           <div>
             <div class="footer-heading">Quick Links</div>
             <ul class="footer-links">
               <li><a href="index.html"><i class="fa fa-chevron-right"></i> Home</a></li>
               <li><a href="about.html"><i class="fa fa-chevron-right"></i> About Us</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Services</a></li>
               <li><a href="project.html"><i class="fa fa-chevron-right"></i> Projects</a></li>
+              <li><a href="services-peb.html"><i class="fa fa-chevron-right"></i> Services</a></li>
+              <li><a href="manufacturing-peb.html"><i class="fa fa-chevron-right"></i> Manufacturing</a></li>
+              <li><a href="contact.html"><i class="fa fa-chevron-right"></i> Contact</a></li>
             </ul>
           </div>
+
+          <!-- Column 3: Company -->
           <div>
-            <div class="footer-heading">Services</div>
+            <div class="footer-heading">Company</div>
             <ul class="footer-links">
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> PEB Design & Engineering</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Fabrication & Manufacturing</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Installation & Erection</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Turnkey Solutions</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Industrial Shed & Warehouse</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Pre Engineered Buildings</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Z & C Purlins</a></li>
-              <li><a href="services.html"><i class="fa fa-chevron-right"></i> Ceiling System</a></li>
+              <li><a href="hr-desk.html"><i class="fa fa-chevron-right"></i> Careers</a></li>
+              <li><a href="gallery.html"><i class="fa fa-chevron-right"></i> Gallery</a></li>
+              <li><a href="blogs.html"><i class="fa fa-chevron-right"></i> Blogs</a></li>
             </ul>
           </div>
+
+          <!-- Column 4: Contact Us -->
           <div>
-            <div class="footer-heading">Contact</div>
+            <div class="footer-heading">Contact Us</div>
             <ul class="footer-contact-list">
-              <li class="footer-contact-item"><span class="icon"><i class="fa fa-location-dot"></i></span><span>NS-11,
-                  BIADA Gate No.5, Patliputra Industrial Area, Patna – 800013</span></li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-building"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">HEAD
+                    OFFICE</strong><br>NS-11, Plot NS-11, 1st Plot at BIADA, Gate No.5, Patliputra Industrial Area,
+                  Patna – 800013</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-industry"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">PEB
+                    DIVISION</strong><br>Plot IP-1,2,3&amp;4, Industrial Area Goraul Phase-II, Saraiya, Muzaffarpur,
+                  Bihar – 843126</div>
+              </li>
               <li class="footer-contact-item"><span class="icon"><i class="fa fa-phone"></i></span>
                 <div><a href="tel:+917463843731">+91 74638 43731</a><br><a href="tel:+919229893797">+91 92298 93797</a>
                 </div>
               </li>
-              <li class="footer-contact-item"><span class="icon"><i class="fa fa-envelope"></i></span><a
-                  href="mailto:Info@aishra.in">Info@aishra.in</a></li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-envelope"></i></span>
+                <div><a href="mailto:Info@aishra.in">Info@aishra.in</a><br><a
+                    href="mailto:projects.aishra@gmail.com">projects.aishra@gmail.com</a></div>
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
+
     <div class="footer-bottom">
       <div class="container">
-        <div class="footer-bottom-inner"><span>©
+        <div class="footer-bottom-inner"
+          style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center;">
+          <span>©
             <script>document.write(new Date().getFullYear())</script> <span class="hl">Aishra Technofab
               Engineers</span>. All rights reserved.
-          </span><span>www.aishra.in</span></div>
+          </span>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Terms & Conditions</a>
+          </div>
+        </div>
       </div>
     </div>
   </footer>

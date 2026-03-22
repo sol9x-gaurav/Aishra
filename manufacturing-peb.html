@@ -1,0 +1,1610 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacturing — Aishra Technofab Engineers</title>
+  <meta name="description"
+    content="Aishra Technofab Engineers manufactures primary PEB structural components: columns, rafters, beams, portal frames and built-up sections with CNC precision.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,800;1,700&family=Nunito+Sans:wght@300;400;600;700;800&family=DM+Mono:wght@400;500&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="css/custom.css">
+  <style>
+    /* ---- Manufacturing page specific ---- */
+    .mfg-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .mfg-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: var(--transition);
+      box-shadow: var(--shadow-xs);
+    }
+
+    .mfg-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .mfg-card-header {
+      background: var(--navy);
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+
+    .mfg-card-icon {
+      width: 48px;
+      height: 48px;
+      background: var(--primary);
+      border-radius: var(--radius-sm);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: #fff;
+      flex-shrink: 0;
+    }
+
+    .mfg-card-title {
+      font-family: var(--font-display);
+      font-size: 18px;
+      color: #fff;
+    }
+
+    .mfg-card-body {
+      padding: 22px 24px;
+    }
+
+    .mfg-card-desc {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      line-height: 1.7;
+      margin-bottom: 14px;
+    }
+
+    .mfg-tag-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .mfg-tag {
+      background: var(--primary-lt);
+      color: var(--primary);
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid rgba(232, 93, 4, 0.2);
+    }
+
+    /* Framing diagram */
+    .framing-section {
+      background: var(--navy);
+      padding: 80px 0;
+    }
+
+    .framing-diagram {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-lg);
+      padding: 48px;
+      text-align: center;
+    }
+
+    .framing-svg {
+      max-width: 700px;
+      width: 100%;
+      margin: 0 auto;
+      display: block;
+    }
+
+    /* Specs card */
+    .specs-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+    }
+
+    .specs-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .spec-item {
+      text-align: center;
+    }
+
+    .spec-val {
+      font-family: var(--font-display);
+      font-size: 36px;
+      color: var(--primary);
+      display: block;
+      line-height: 1;
+    }
+
+    .spec-lbl {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      margin-top: 6px;
+      display: block;
+    }
+
+    @media (max-width: 992px) {
+      .mfg-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .specs-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .mfg-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .specs-row {
+        grid-template-columns: 1fr;
+      }
+
+      .framing-diagram {
+        padding: 24px 16px;
+      }
+    }
+
+    /* ---- New Sections CSS ---- */
+    .section-gradient {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1b2a 100%);
+      color: #fff;
+    }
+
+    .section-gradient .sec-title,
+    .section-gradient .sec-lead {
+      color: #fff;
+    }
+
+    .section-separator {
+      height: 8px;
+      background: linear-gradient(to right, var(--primary), var(--gold), var(--primary));
+      opacity: 0.8;
+    }
+
+    /* Tags / Badges */
+    .highlight-badge {
+      display: inline-block;
+      background: rgba(232, 93, 4, 0.15);
+      color: var(--primary);
+      padding: 4px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 12px;
+      border: 1px solid rgba(232, 93, 4, 0.3);
+    }
+
+    .highlight-badge.badge-white {
+      background: rgba(255, 255, 255, 0.1);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    /* Technical Highlight Box */
+    .tech-box {
+      background: rgba(232, 93, 4, 0.05);
+      border-left: 3px solid var(--primary);
+      padding: 24px;
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+      margin-top: 24px;
+    }
+
+    .tech-box ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .tech-box li {
+      margin-bottom: 10px;
+      color: var(--text-mid);
+      font-size: 14.5px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .tech-box li strong {
+      color: var(--navy);
+      display: inline-block;
+      width: 140px;
+      font-weight: 700;
+    }
+
+    .tech-box li i {
+      color: var(--primary);
+    }
+
+    /* Reveal Delays Enhancements */
+    .reveal-delay-1 {
+      transition-delay: 0.1s;
+    }
+
+    .reveal-delay-2 {
+      transition-delay: 0.2s;
+    }
+
+    .reveal-delay-3 {
+      transition-delay: 0.3s;
+    }
+
+    .reveal-delay-4 {
+      transition-delay: 0.4s;
+    }
+
+    /* Connection Cards */
+    .conn-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+    }
+
+    .conn-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px 30px;
+      text-align: center;
+      transition: var(--transition);
+      box-shadow: var(--shadow-sm);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .conn-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 4px;
+      background: var(--primary);
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform 0.4s ease;
+    }
+
+    .conn-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.08);
+      border-color: var(--primary);
+    }
+
+    .conn-card:hover::before {
+      transform: scaleX(1);
+    }
+
+    .conn-icon {
+      font-size: 48px;
+      color: var(--primary);
+      margin-bottom: 24px;
+      transition: transform 0.3s ease;
+    }
+
+    .conn-card:hover .conn-icon {
+      transform: scale(1.1);
+    }
+
+    .conn-title {
+      font-family: var(--font-display);
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 12px;
+    }
+
+    /* Accessories Grid */
+    .accessories-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    .acc-item {
+      background: #fff;
+      border: 1px solid var(--border);
+      padding: 30px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .acc-item:hover {
+      background: #fafafa;
+      box-shadow: var(--shadow-md);
+      transform: translateY(-3px);
+      border-color: var(--primary);
+    }
+
+    .acc-icon-wrap {
+      width: 54px;
+      height: 54px;
+      background: rgba(232, 93, 4, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--primary);
+      font-size: 22px;
+      flex-shrink: 0;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    .acc-item:hover .acc-icon-wrap {
+      background: var(--primary);
+      color: #fff;
+    }
+
+    .acc-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.4;
+    }
+
+    /* Purlin Specs Table */
+    .spec-table-wrap {
+      background: #fff;
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-sm);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    .spec-table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    .spec-table th {
+      background: var(--navy);
+      color: #fff;
+      padding: 16px 24px;
+      text-align: left;
+      font-family: var(--font-display);
+      font-size: 16px;
+    }
+
+    .spec-table th i {
+      color: var(--primary);
+      margin-right: 8px;
+    }
+
+    .spec-table td {
+      padding: 16px 24px;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-mid);
+      font-size: 14.5px;
+    }
+
+    .spec-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .spec-table tr:hover td {
+      background: #fdfdfd;
+    }
+
+    .spec-table td strong {
+      color: var(--navy);
+    }
+
+    /* Cladding Cards */
+    .cladding-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 40px;
+      height: 100%;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .cladding-card ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .cladding-card li {
+      margin-bottom: 14px;
+      color: var(--text-mid);
+      font-size: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .cladding-card li i {
+      color: var(--primary);
+    }
+
+    @media (max-width: 992px) {
+      .accessories-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .conn-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .accessories-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .conn-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* SVG Grid Styles */
+    .schema-section {
+      padding: 80px 0;
+      background: #f8f9fa;
+    }
+
+    .schema-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      margin-top: 40px;
+    }
+
+    .schema-card {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 30px 20px;
+      transition: all 0.3s ease;
+      box-shadow: var(--shadow-sm);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .schema-card:hover {
+      transform: translateY(-8px);
+      box-shadow: var(--shadow-lg);
+      border-color: var(--primary);
+    }
+
+    .schema-card svg {
+      width: 100%;
+      max-height: 180px;
+      height: auto;
+      margin-bottom: 20px;
+    }
+
+    .schema-caption {
+      text-align: center;
+      font-weight: 700;
+      color: var(--navy);
+      font-size: 16px;
+      margin: 0;
+      border-top: 1px solid #eee;
+      padding-top: 15px;
+      width: 100%;
+    }
+
+    @media (max-width: 992px) {
+      .schema-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 600px) {
+      .schema-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="page-loader" id="pageLoader">
+    <div class="loader-ring"></div>
+    <div class="loader-brand">Aishra Technofab</div>
+  </div>
+
+  <div class="top-bar">✦ Established August 2018 &nbsp;|&nbsp; <span class="hl">Complete PEB Solutions</span>
+    &nbsp;|&nbsp; Pan-India Delivery &nbsp;|&nbsp; <span class="hl">www.aishra.in</span> ✦</div>
+
+  <header class="header-info">
+    <div class="container">
+      <div class="brand-logo"><a href="index.html"><img loading="lazy" src="images/logo.png"
+            alt="Aishra Technofab Engineers"></a></div>
+      <div class="header-contact-item">
+        <div class="header-icon-wrap"><i class="fa fa-phone"></i></div>
+        <div class="header-contact-text"><span class="label">Call / Enquiry</span><strong>+91 74638
+            43731</strong><small>+91 92298 93797</small></div>
+      </div>
+      <div class="header-contact-item">
+        <div class="header-icon-wrap"><i class="fa fa-envelope"></i></div>
+        <div class="header-contact-text"><span class="label">Email
+            Us</span><strong>Info@aishra.in</strong><small>projects.aishra@gmail.com</small></div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="main-nav">
+    <div class="container">
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="project.html">Projects</a></li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle active">Products</a>
+          <ul class="nav-dropdown nav-products-dd">
+            <li><a href="services-peb.html"><i class="fa fa-layer-group"></i> Services</a></li>
+            <li><a href="manufacturing-peb.html"><i class="fa fa-industry"></i> Manufacturing</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
+          <ul class="nav-dropdown">
+            <li class="has-dd has-nested-dd">
+              <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
+              <ul class="nav-nested-dropdown">
+                <li><a href="products/pre-engineered-buildings.html">Pre-Engineered Buildings</a></li>
+                <li><a href="products/multistory-buildings.html">Multistory Buildings</a></li>
+                <li><a href="products/steel-structure-fabricator.html">Steel Structure Fabricator</a></li>
+                <li><a href="products/structural-steel-fabricator.html">Structural Steel Fabricator</a></li>
+                <li><a href="products/pre-engineered-structural-steel.html">Pre-Engineered Structural Steel</a></li>
+              </ul>
+            </li>
+            <li><a href="products/lgsf.html">LGSF</a></li>
+            <li><a href="products/puf-panel.html">PUF Panel</a></li>
+            <li><a href="products/purlin-girt.html">Purlin / Girt</a></li>
+            <li><a href="products/roofing-sheet.html">Roofing Sheet</a></li>
+            <li><a href="products/space-frame.html">Space Frame</a></li>
+            <li><a href="products/tensile-fabric.html">Tensile Fabric</a></li>
+            <li><a href="products/air-ventilation.html">Air Ventilation</a></li>
+          </ul>
+        </li>
+        <li class="has-dd">
+          <a href="#" class="has-dropdown dropdown-toggle">Other</a>
+          <ul class="nav-dropdown">
+            <li><a href="hr-desk.html">Careers</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="blogs.html">Blogs</a></li>
+          </ul>
+        </li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta-wrapper">
+        <a href="brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
+          <span>Download Brochure</span></a>
+        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> <span>Request
+            Quote</span></a>
+      </div>
+      <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <div class="container">
+      <div class="page-hero-bg"
+        style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1600&q=80');"></div>
+      <div class="page-hero-content reveal">
+        <div class="breadcrumb-nav">
+          <a href="index.html">Home</a><span class="sep">›</span>
+          <a href="#">Products</a><span class="sep">›</span>
+          <span>Manufacturing</span>
+        </div>
+        <h1 class="page-hero-title">PEB <span class="accent">Manufacturing</span></h1>
+        <p style="color:rgba(255,255,255,0.72);font-size:16px;max-width:560px;margin-top:14px;line-height:1.75;">
+          Primary structural members fabricated with CNC precision, robotic welding and SA 2.5 surface protection —
+          built to last decades.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- COMPONENTS GRID -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="text-center mb-56">
+        <div class="sec-label" style="justify-content:center;">Primary Members</div>
+        <h2 class="sec-title">Manufactured Components</h2>
+        <p class="sec-lead" style="margin:0 auto;">Every structural member is fabricated in-house using high-tensile
+          steel and automated processes — zero compromise on dimensional accuracy.</p>
+      </div>
+      <div class="mfg-grid">
+
+        <div class="mfg-card reveal">
+          <div class="mfg-card-header">
+            <div class="mfg-card-icon"><i class="fa fa-grip-lines-vertical"></i></div>
+            <div class="mfg-card-title">Columns</div>
+          </div>
+          <div class="mfg-card-body">
+            <p class="mfg-card-desc">Vertical load-bearing members fabricated from high-tensile built-up sections.
+              Designed for axial compression, bending and base shear resistance.</p>
+            <div class="mfg-tag-list">
+              <span class="mfg-tag">End Columns</span>
+              <span class="mfg-tag">Interior Columns</span>
+              <span class="mfg-tag">Tapered Columns</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mfg-card reveal reveal-delay-1">
+          <div class="mfg-card-header">
+            <div class="mfg-card-icon"><i class="fa fa-minus"></i></div>
+            <div class="mfg-card-title">Rafters</div>
+          </div>
+          <div class="mfg-card-body">
+            <p class="mfg-card-desc">Sloped roof beams spanning the full width of the building. Tapered profiles
+              optimise material use while maintaining structural integrity under roof loads.</p>
+            <div class="mfg-tag-list">
+              <span class="mfg-tag">Tapered Rafters</span>
+              <span class="mfg-tag">Built-up Rafters</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mfg-card reveal reveal-delay-2">
+          <div class="mfg-card-header">
+            <div class="mfg-card-icon"><i class="fa fa-ruler-horizontal"></i></div>
+            <div class="mfg-card-title">Beams</div>
+          </div>
+          <div class="mfg-card-body">
+            <p class="mfg-card-desc">Horizontal structural members carrying floor, crane and eave loads. Fabricated up
+              to 1500 mm flange width with web heights to 1420 mm.</p>
+            <div class="mfg-tag-list">
+              <span class="mfg-tag">I-Beams</span>
+              <span class="mfg-tag">Crane Beams</span>
+              <span class="mfg-tag">Eave Beams</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mfg-card reveal">
+          <div class="mfg-card-header">
+            <div class="mfg-card-icon"><i class="fa fa-vector-square"></i></div>
+            <div class="mfg-card-title">Portal Frames</div>
+          </div>
+          <div class="mfg-card-body">
+            <p class="mfg-card-desc">Integrated column-rafter assemblies forming the primary lateral load-resisting
+              system. Single-piece spans up to 13.0 metres available.</p>
+            <div class="mfg-tag-list">
+              <span class="mfg-tag">Column + Rafter System</span>
+              <span class="mfg-tag">Clear Span</span>
+              <span class="mfg-tag">Multi-Span</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mfg-card reveal reveal-delay-1">
+          <div class="mfg-card-header">
+            <div class="mfg-card-icon"><i class="fa fa-layer-group"></i></div>
+            <div class="mfg-card-title">Built-up Sections</div>
+          </div>
+          <div class="mfg-card-body">
+            <p class="mfg-card-desc">Custom welded sections fabricated to exact project specifications. Robotic
+              stiffener welding and PTW beam welding ensure consistent weld quality throughout.</p>
+            <div class="mfg-tag-list">
+              <span class="mfg-tag">Fabricated Sections</span>
+              <span class="mfg-tag">Welded Sections</span>
+              <span class="mfg-tag">Custom Profiles</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Specs card in 6th slot -->
+        <div class="specs-card reveal reveal-delay-2" style="border-radius:var(--radius-lg);">
+          <div class="sec-label" style="margin-bottom:20px;">Manufacturing Specs</div>
+          <div class="specs-row">
+            <div class="spec-item">
+              <span class="spec-val">1500<small style="font-size:18px;">mm</small></span>
+              <span class="spec-lbl">Max Flange Width</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-val">1420<small style="font-size:18px;">mm</small></span>
+              <span class="spec-lbl">Max Web Height</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-val">13<small style="font-size:18px;">m</small></span>
+              <span class="spec-lbl">Max Single Span</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-val">SA 2.5</span>
+              <span class="spec-lbl">Shot Blast Grade</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-val">PU</span>
+              <span class="spec-lbl">Paint Finish</span>
+            </div>
+            <div class="spec-item">
+              <span class="spec-val">CNC</span>
+              <span class="spec-lbl">Plasma Cutting</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- STRUCTURAL FRAMING DIAGRAM — REFERENCE -->
+  <div class="framing-section">
+    <div class="container">
+      <div class="text-center" style="margin-bottom:40px;">
+        <div class="sec-label" style="justify-content:center;color:var(--gold);">Visual Reference</div>
+        <h2 class="sec-title" style="color:#fff;">Structural Framing System</h2>
+        <p style="color:rgba(255,255,255,0.55);font-size:15px;max-width:520px;margin:12px auto 0;line-height:1.7;">
+          A typical single-span PEB portal frame showing primary member positions and nomenclature.
+        </p>
+      </div>
+      <div class="framing-diagram">
+        <!-- SVG schematic of a PEB portal frame -->
+        <svg class="framing-svg" viewBox="0 0 700 340" fill="none" xmlns="http://www.w3.org/2000/svg"
+          aria-label="PEB Portal Frame Diagram">
+          <!-- Ground line -->
+          <line x1="40" y1="300" x2="660" y2="300" stroke="rgba(255,255,255,0.2)" stroke-width="2" />
+          <!-- Left column -->
+          <rect x="80" y="120" width="18" height="180" fill="#e85d04" rx="2" />
+          <!-- Right column -->
+          <rect x="602" y="120" width="18" height="180" fill="#e85d04" rx="2" />
+          <!-- Left rafter -->
+          <polygon points="80,120 350,50 368,50 98,120" fill="#f4a225" />
+          <!-- Right rafter -->
+          <polygon points="350,50 620,120 602,120 332,50" fill="#f4a225" />
+          <!-- Ridge cap -->
+          <rect x="340" y="44" width="20" height="14" fill="#fff" rx="2" />
+          <!-- Eave beam left -->
+          <rect x="78" y="116" width="40" height="10" fill="#fff" rx="2" />
+          <!-- Eave beam right -->
+          <rect x="582" y="116" width="40" height="10" fill="#fff" rx="2" />
+          <!-- Purlin lines on left rafter -->
+          <line x1="140" y1="103" x2="158" y2="97" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <line x1="200" y1="86" x2="218" y2="80" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <line x1="260" y1="69" x2="278" y2="63" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <!-- Purlin lines on right rafter -->
+          <line x1="542" y1="103" x2="524" y2="97" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <line x1="482" y1="86" x2="464" y2="80" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <line x1="422" y1="69" x2="404" y2="63" stroke="rgba(255,255,255,0.4)" stroke-width="2" />
+          <!-- Base plates -->
+          <rect x="68" y="296" width="42" height="8" fill="rgba(255,255,255,0.3)" rx="1" />
+          <rect x="590" y="296" width="42" height="8" fill="rgba(255,255,255,0.3)" rx="1" />
+          <!-- Labels -->
+          <text x="52" y="210" fill="#e85d04" font-size="11" font-family="monospace" text-anchor="middle"
+            transform="rotate(-90,52,210)">COLUMN</text>
+          <text x="648" y="210" fill="#e85d04" font-size="11" font-family="monospace" text-anchor="middle"
+            transform="rotate(90,648,210)">COLUMN</text>
+          <text x="200" y="72" fill="#f4a225" font-size="11" font-family="monospace" text-anchor="middle"
+            transform="rotate(-18,200,72)">RAFTER</text>
+          <text x="500" y="72" fill="#f4a225" font-size="11" font-family="monospace" text-anchor="middle"
+            transform="rotate(18,500,72)">RAFTER</text>
+          <text x="350" y="36" fill="#fff" font-size="10" font-family="monospace" text-anchor="middle">RIDGE</text>
+          <text x="89" y="112" fill="#fff" font-size="9" font-family="monospace" text-anchor="middle">EAVE BEAM</text>
+          <text x="611" y="112" fill="#fff" font-size="9" font-family="monospace" text-anchor="middle">EAVE BEAM</text>
+          <text x="350" y="320" fill="rgba(255,255,255,0.4)" font-size="10" font-family="monospace"
+            text-anchor="middle">CLEAR SPAN</text>
+          <!-- Span arrow -->
+          <line x1="100" y1="315" x2="600" y2="315" stroke="rgba(255,255,255,0.25)" stroke-width="1"
+            marker-start="url(#arr)" marker-end="url(#arr)" />
+          <defs>
+            <marker id="arr" markerWidth="6" markerHeight="6" refX="3" refY="3" orient="auto">
+              <path d="M0,0 L6,3 L0,6 Z" fill="rgba(255,255,255,0.3)" />
+            </marker>
+          </defs>
+          <!-- Purlin label -->
+          <text x="155" y="88" fill="rgba(255,255,255,0.5)" font-size="9" font-family="monospace">PURLINS</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- FRAME TYPES CATALOG -->
+  <section class="section schema-section">
+    <div class="container">
+      <div class="text-center">
+        <div class="highlight-badge">Catalog</div>
+        <h2 class="sec-title">Standard Frame Systems</h2>
+        <p class="sec-lead" style="margin:0 auto; max-width:650px;">Explore our versatile range of pre-engineered
+          framing systems, conceptually designed to cater to diverse industrial, commercial, and architectural
+          requirements.</p>
+      </div>
+      <div class="schema-grid">
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="Lean-to Portal Frame Diagram">
+            <line x1="50" y1="220" x2="550" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="100,220 130,220 135,50 95,50" fill="#f37021" />
+            <polygon points="108,210 122,210 127,60 103,60" fill="#2d2d2d" />
+
+            <polygon points="95,50 135,50 430,20 430,5" fill="#f37021" />
+            <polygon points="115,50 130,50 420,25 420,15" fill="#2d2d2d" />
+
+            <g>
+              <rect x="430" y="5" width="150" height="215" fill="#f37021" />
+              <defs>
+                <pattern id="hatch" width="15" height="15" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+                  <line x1="0" y1="0" x2="0" y2="15" stroke="#ffffff" stroke-width="1.5" />
+                </pattern>
+              </defs>
+              <rect x="430" y="5" width="150" height="215" fill="url(#hatch)" opacity="0.6" />
+            </g>
+
+            <g>
+              <line x1="10" y1="250" x2="100" y2="250" stroke="#2b78c5" stroke-width="1.5" />
+              <polygon points="100,250 85,245 85,255" fill="#2b78c5" />
+
+              <line x1="520" y1="250" x2="430" y2="250" stroke="#2b78c5" stroke-width="1.5" />
+              <polygon points="430,250 445,245 445,255" fill="#2b78c5" />
+
+              <line x1="100" y1="240" x2="100" y2="265" stroke="#2b78c5" stroke-width="1" />
+              <line x1="430" y1="240" x2="430" y2="265" stroke="#2b78c5" stroke-width="1" />
+
+              <text x="265" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="16"
+                fill="#555">Building
+                Width</text>
+              <text x="265" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="22" fill="#333">Lean to</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Lean-to</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 800 350" xmlns="http://www.w3.org/2000/svg" aria-label="Multi Span 1 Portal Frame Diagram">
+            <line x1="50" y1="250" x2="750" y2="250" stroke="#333" stroke-width="2" />
+
+            <polygon points="100,250 140,250 145,80 90,80" fill="#f37021" />
+            <polygon points="110,240 130,240 135,90 102,90" fill="#2d2d2d" />
+
+            <polygon points="700,250 660,250 655,80 710,80" fill="#f37021" />
+            <polygon points="690,240 670,240 665,90 698,90" fill="#2d2d2d" />
+
+            <rect x="385" y="65" width="30" height="185" fill="#f37021" />
+            <rect x="395" y="75" width="10" height="165" fill="#2d2d2d" />
+
+            <polygon points="90,80 145,80 400,65 400,45" fill="#f37021" />
+            <polygon points="110,80 135,80 390,68 390,55" fill="#2d2d2d" />
+
+            <polygon points="710,80 655,80 400,65 400,45" fill="#f37021" />
+            <polygon points="690,80 665,80 410,68 410,55" fill="#2d2d2d" />
+
+            <g>
+              <path d="M440,30 L400,45" stroke="#2b78c5" stroke-width="2" fill="none" />
+              <polygon points="400,45 412,40 408,50" fill="#2b78c5" />
+              <text x="445" y="35" fill="#555" font-family="Arial, sans-serif" font-size="18">Ridge</text>
+            </g>
+
+            <g>
+              <line x1="100" y1="280" x2="700" y2="280" stroke="#2b78c5" stroke-width="1.5" />
+              <polygon points="100,280 120,274 120,286" fill="#2b78c5" />
+              <polygon points="700,280 680,274 680,286" fill="#2b78c5" />
+              <line x1="100" y1="270" x2="100" y2="300" stroke="#2b78c5" stroke-width="1" />
+              <line x1="700" y1="270" x2="700" y2="300" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="330" y="270" width="140" height="20" fill="white" />
+              <text x="400" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-size="16"
+                fill="#444">Building
+                Width</text>
+              <text x="400" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="22" fill="#333">Multi Span "1"</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Multi Span 1</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" aria-label="Mono Slope Portal Frame Diagram">
+            <line x1="50" y1="220" x2="550" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="120,220 155,220 160,50 115,50" fill="#f37021" />
+            <polygon points="128,210 148,210 152,65 123,65" fill="#2d2d2d" />
+
+            <rect x="440" y="20" width="25" height="200" fill="#f37021" />
+            <rect x="448" y="35" width="9" height="175" fill="#2d2d2d" />
+
+            <polygon points="115,50 160,50 465,20 440,20" fill="#f37021" />
+            <polygon points="135,50 155,50 450,25 448,25" fill="#2d2d2d" />
+
+            <g>
+              <line x1="10" y1="250" x2="120" y2="250" stroke="#2b78c5" stroke-width="1.5" />
+              <polygon points="120,250 105,245 105,255" fill="#2b78c5" />
+
+              <line x1="570" y1="250" x2="465" y2="250" stroke="#2b78c5" stroke-width="1.5" />
+              <polygon points="465,250 480,245 480,255" fill="#2b78c5" />
+
+              <line x1="120" y1="240" x2="120" y2="265" stroke="#2b78c5" stroke-width="1" />
+              <line x1="465" y1="240" x2="465" y2="265" stroke="#2b78c5" stroke-width="1" />
+
+              <text x="292" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="16"
+                fill="#555">Building
+                Width</text>
+              <text x="292" y="285" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="22" fill="#333">Mono Slope</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Mono Slope</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg"
+            aria-label="Multi Span 1 with Three Width Modules">
+            <line x1="40" y1="220" x2="760" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="80,220 115,220 120,60 75,60" fill="#f37021" />
+            <polygon points="90,210 108,210 112,70 82,70" fill="#2d2d2d" />
+
+            <polygon points="720,220 685,220 680,60 725,60" fill="#f37021" />
+            <polygon points="710,210 692,210 688,70 718,70" fill="#2d2d2d" />
+
+            <rect x="310" y="70" width="18" height="150" fill="#f37021" />
+            <rect x="316" y="80" width="6" height="130" fill="#2d2d2d" />
+
+            <rect x="470" y="70" width="18" height="150" fill="#f37021" />
+            <rect x="476" y="80" width="6" height="130" fill="#2d2d2d" />
+
+            <polygon points="75,60 120,60 400,45 400,30" fill="#f37021" />
+            <polygon points="100,60 115,60 390,48 390,40" fill="#2d2d2d" />
+
+            <polygon points="725,60 680,60 400,45 400,30" fill="#f37021" />
+            <polygon points="700,60 685,60 410,48 410,40" fill="#2d2d2d" />
+
+            <g>
+              <path d="M435,20 L400,35" stroke="#2b78c5" stroke-width="1.5" fill="none" />
+              <polygon points="400,35 410,30 408,38" fill="#2b78c5" />
+              <text x="440" y="25" fill="#555" font-family="Arial, sans-serif" font-size="14">Ridge</text>
+            </g>
+
+            <g font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">
+              <text x="210" y="210">Width Module</text>
+              <text x="400" y="210">Width Module</text>
+              <text x="590" y="210">Width Module</text>
+            </g>
+
+            <g>
+              <line x1="80" y1="250" x2="720" y2="250" stroke="#2b78c5" stroke-width="1.2" />
+              <polygon points="80,250 95,245 95,255" fill="#2b78c5" />
+              <polygon points="720,250 705,245 705,255" fill="#2b78c5" />
+              <line x1="80" y1="240" x2="80" y2="270" stroke="#2b78c5" stroke-width="1" />
+              <line x1="720" y1="240" x2="720" y2="270" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="330" y="240" width="140" height="20" fill="white" />
+              <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+              <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">Multi Span "1"</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Multi Span 1 with Three Width Modules</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" aria-label="North Light Portal Frame Diagram">
+            <line x1="40" y1="220" x2="760" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="80,220 110,220 115,65 75,65" fill="#f37021" />
+            <polygon points="88,210 102,210 106,75 84,75" fill="#2d2d2d" />
+
+            <rect x="375" y="40" width="22" height="180" fill="#f37021" />
+            <rect x="382" y="55" width="8" height="155" fill="#2d2d2d" />
+
+            <rect x="685" y="40" width="22" height="180" fill="#f37021" />
+            <rect x="692" y="55" width="8" height="155" fill="#2d2d2d" />
+
+            <polygon points="75,65 115,65 397,40 375,40" fill="#f37021" />
+            <polygon points="120,65 140,65 385,45 385,50" fill="#2d2d2d" />
+
+            <polygon points="405,65 435,65 707,40 685,40" fill="#f37021" />
+            <polygon points="415,65 435,65 695,45 695,50" fill="#2d2d2d" />
+
+            <g>
+              <line x1="80" y1="250" x2="707" y2="250" stroke="#2b78c5" stroke-width="1.2" />
+              <polygon points="80,250 100,244 100,256" fill="#2b78c5" />
+              <polygon points="707,250 687,244 687,256" fill="#2b78c5" />
+              <line x1="80" y1="240" x2="80" y2="270" stroke="#2b78c5" stroke-width="1" />
+              <line x1="707" y1="240" x2="707" y2="270" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="330" y="240" width="140" height="20" fill="white" />
+              <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+              <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">North Light</text>
+            </g>
+          </svg>
+          <div class="schema-caption">North Light</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" aria-label="Multi Span 3 Portal Frame Diagram">
+            <line x1="40" y1="220" x2="860" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="80,220 110,220 115,65 75,65" fill="#f37021" />
+            <polygon points="88,210 102,210 106,75 84,75" fill="#2d2d2d" />
+
+            <polygon points="820,220 790,220 785,65 825,65" fill="#f37021" />
+            <polygon points="812,210 798,210 794,75 816,75" fill="#2d2d2d" />
+
+            <rect x="440" y="45" width="20" height="175" fill="#f37021" />
+            <rect x="446" y="55" width="8" height="155" fill="#2d2d2d" />
+
+            <polygon points="230,220 270,220 275,80 225,80" fill="#f37021" />
+            <polygon points="240,210 260,210 265,90 235,90" fill="#2d2d2d" />
+            <polygon points="670,220 630,220 625,80 675,80" fill="#f37021" />
+            <polygon points="660,210 640,210 635,90 665,90" fill="#2d2d2d" />
+
+            <polygon points="75,65 115,65 450,45 450,30" fill="#f37021" />
+            <polygon points="120,65 150,65 440,48 440,40" fill="#2d2d2d" />
+
+            <polygon points="825,65 785,65 450,45 450,30" fill="#f37021" />
+            <polygon points="780,65 750,65 460,48 460,40" fill="#2d2d2d" />
+
+            <g>
+              <path d="M485,20 L450,35" stroke="#2b78c5" stroke-width="1.5" fill="none" />
+              <polygon points="450,35 460,30 458,38" fill="#2b78c5" />
+              <text x="490" y="25" fill="#555" font-family="Arial, sans-serif" font-size="14">Ridge</text>
+            </g>
+
+            <g>
+              <line x1="80" y1="250" x2="820" y2="250" stroke="#2b78c5" stroke-width="1.2" />
+              <polygon points="80,250 100,244 100,256" fill="#2b78c5" />
+              <polygon points="820,250 800,244 800,256" fill="#2b78c5" />
+              <line x1="80" y1="240" x2="80" y2="270" stroke="#2b78c5" stroke-width="1" />
+              <line x1="820" y1="240" x2="820" y2="270" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="380" y="240" width="140" height="20" fill="white" />
+              <text x="450" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+              <text x="450" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">Multi Span "3"</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Multi Span 3</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg" aria-label="Monitor Type Portal Frame Diagram">
+            <line x1="40" y1="220" x2="760" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="80,220 110,220 115,70 75,70" fill="#f37021" />
+            <polygon points="88,210 102,210 106,80 84,80" fill="#2d2d2d" />
+
+            <polygon points="720,220 690,220 685,70 725,70" fill="#f37021" />
+            <polygon points="712,210 698,210 694,80 716,80" fill="#2d2d2d" />
+
+            <polygon points="75,70 115,70 400,55 400,45" fill="#f37021" />
+            <polygon points="110,70 135,70 390,58 390,52" fill="#2d2d2d" />
+            <polygon points="725,70 685,70 400,55 400,45" fill="#f37021" />
+            <polygon points="690,70 665,70 410,58 410,52" fill="#2d2d2d" />
+
+            <g>
+              <path d="M350,52 L350,25 L400,10 L450,25 L450,52" fill="none" stroke="#f37021" stroke-width="8"
+                stroke-linejoin="round" />
+              <path d="M358,48 L358,28 L400,16 L442,28 L442,48" fill="none" stroke="#2d2d2d" stroke-width="4"
+                stroke-linejoin="round" />
+            </g>
+
+            <g>
+              <line x1="80" y1="250" x2="720" y2="250" stroke="#2b78c5" stroke-width="1.2" />
+              <polygon points="80,250 100,244 100,256" fill="#2b78c5" />
+              <polygon points="720,250 700,244 700,256" fill="#2b78c5" />
+              <line x1="80" y1="240" x2="80" y2="270" stroke="#2b78c5" stroke-width="1" />
+              <line x1="720" y1="240" x2="720" y2="270" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="330" y="240" width="140" height="20" fill="white" />
+              <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+              <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">Monitor Type</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Monitor Type</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 900 320" xmlns="http://www.w3.org/2000/svg" aria-label="Multi Gable Portal Frame Diagram">
+            <line x1="40" y1="230" x2="860" y2="230" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="80,230 110,230 115,80 75,80" fill="#f37021" />
+            <polygon points="88,220 102,220 106,90 84,90" fill="#2d2d2d" />
+            <polygon points="820,230 790,230 785,80 825,80" fill="#f37021" />
+            <polygon points="812,220 798,220 794,90 816,90" fill="#2d2d2d" />
+
+            <polygon points="425,230 475,230 485,110 415,110" fill="#f37021" />
+            <polygon points="435,220 465,220 472,120 428,120" fill="#2d2d2d" />
+
+            <polygon points="75,80 115,80 275,55 275,70" fill="#f37021" />
+            <polygon points="275,55 275,70 415,110 450,110" fill="#f37021" />
+            <polygon points="110,80 130,80 275,65 275,75" fill="#2d2d2d" />
+            <polygon points="275,65 275,75 430,110 450,110" fill="#2d2d2d" />
+
+            <polygon points="825,80 785,80 625,55 625,70" fill="#f37021" />
+            <polygon points="625,55 625,70 485,110 450,110" fill="#f37021" />
+            <polygon points="790,80 770,80 625,65 625,75" fill="#2d2d2d" />
+            <polygon points="625,65 625,75 470,110 450,110" fill="#2d2d2d" />
+
+            <g>
+              <path d="M220,30 L260,55 M330,30 L290,55" stroke="#2b78c5" stroke-width="1.5" fill="none" />
+              <polygon points="275,55 260,50 265,60" fill="#2b78c5" />
+
+              <path d="M680,30 L640,55 M570,30 L610,55" stroke="#2b78c5" stroke-width="1.5" fill="none" />
+              <polygon points="625,55 640,50 635,60" fill="#2b78c5" />
+
+              <text x="450" y="30" fill="#555" font-family="Arial, sans-serif" font-size="14"
+                text-anchor="middle">Ridge</text>
+            </g>
+
+            <g>
+              <line x1="80" y1="260" x2="820" y2="260" stroke="#2b78c5" stroke-width="1.2" />
+              <polygon points="80,260 100,254 100,266" fill="#2b78c5" />
+              <polygon points="820,260 800,254 800,266" fill="#2b78c5" />
+              <line x1="80" y1="250" x2="80" y2="280" stroke="#2b78c5" stroke-width="1" />
+              <line x1="820" y1="250" x2="820" y2="280" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="380" y="250" width="140" height="20" fill="white" />
+              <text x="450" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+              <text x="450" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">Multi Gable</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Multi Gable</div>
+        </div>
+
+        <div class="schema-card reveal">
+          <svg viewBox="0 0 800 320" xmlns="http://www.w3.org/2000/svg"
+            aria-label="Butterfly Canopy Portal Frame Diagram">
+            <line x1="40" y1="220" x2="760" y2="220" stroke="#333" stroke-width="1.5" />
+
+            <polygon points="385,215 415,215 430,75 370,75" fill="#f37021" />
+            <polygon points="392,205 408,205 418,85 382,85" fill="#2d2d2d" />
+
+            <polygon points="60,45 60,65 370,80 385,80 385,65" fill="#f37021" />
+            <polygon points="70,52 70,60 370,72 370,68" fill="#2d2d2d" />
+
+            <polygon points="740,45 740,65 430,80 415,80 415,65" fill="#f37021" />
+            <polygon points="730,52 730,60 430,72 430,68" fill="#2d2d2d" />
+
+            <rect x="382" y="75" width="8" height="12" rx="4" fill="#2d2d2d" />
+            <rect x="410" y="75" width="8" height="12" rx="4" fill="#2d2d2d" />
+
+            <g>
+              <line x1="70" y1="250" x2="730" y2="250" stroke="#2b78c5" stroke-width="1.2" />
+
+              <polygon points="70,250 90,244 90,256" fill="#2b78c5" />
+
+              <polygon points="730,250 710,244 710,256" fill="#2b78c5" />
+
+              <line x1="70" y1="240" x2="70" y2="270" stroke="#2b78c5" stroke-width="1" />
+              <line x1="730" y1="240" x2="730" y2="270" stroke="#2b78c5" stroke-width="1" />
+
+              <rect x="330" y="240" width="140" height="20" fill="white" />
+              <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="15"
+                fill="#555">Building
+                Width</text>
+
+              <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold"
+                font-size="20" fill="#333">Butterfly Canopy</text>
+            </g>
+          </svg>
+          <div class="schema-caption">Butterfly Canopy</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <div class="section-separator"></div>
+
+  <!-- STRUCTURAL SYSTEM OVERVIEW -->
+  <section class="section section-gradient" style="padding: 80px 0;">
+    <div class="container text-center">
+      <div class="sec-label" style="justify-content:center;color:var(--gold);">Core Foundation</div>
+      <h2 class="sec-title" style="color:#fff;">Structural System Overview</h2>
+      <p style="color:rgba(255,255,255,0.7);max-width:700px;margin:16px auto 0;font-size:16px;line-height:1.7;">
+        Structural systems are the main load-bearing components of PEB structures including columns, rafters, and end
+        wall posts. Their design depends on building usage, load conditions, and span requirements.
+      </p>
+    </div>
+  </section>
+
+  <!-- SECONDARY STRUCTURAL MEMBERS -->
+  <section class="section section-white" style="padding: 80px 0;">
+    <div class="container">
+      <div class="row" style="display:flex; flex-wrap:wrap; gap:40px; align-items:flex-start;">
+        <div class="col-md-5 reveal" style="flex:1; min-width:300px;">
+          <div class="highlight-badge">High Strength</div>
+          <h2 class="sec-title" style="margin-bottom:20px;">Secondary Structural Members</h2>
+          <p class="sec-lead">Secondary framing includes cold-formed steel members such as purlins, girts, and eave
+            struts, designed to support cladding and distribute loads efficiently.</p>
+
+          <div class="tech-box">
+            <ul>
+              <li><i class="fa fa-cubes"></i> <strong>Material:</strong> Cold-formed steel</li>
+              <li><i class="fa fa-tachometer-alt"></i> <strong>Yield Strength:</strong> 345 MPa (50,000 psi)</li>
+              <li><i class="fa fa-certificate"></i> <strong>Standards:</strong> ASTM A1011 Grade 50 / ASTM A653 Grade 50
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="col-md-7" style="flex:1.5; min-width:300px;">
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:20px;">
+            <div class="acc-item reveal reveal-delay-1">
+              <div class="acc-icon-wrap"><i class="fa fa-bars"></i></div>
+              <div class="acc-title">Purlins</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-2">
+              <div class="acc-icon-wrap"><i class="fa fa-layer-group"></i></div>
+              <div class="acc-title">Girts</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-3">
+              <div class="acc-icon-wrap"><i class="fa fa-compress-alt"></i></div>
+              <div class="acc-title">Eave Struts</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-1">
+              <div class="acc-icon-wrap"><i class="fa fa-wind"></i></div>
+              <div class="acc-title">Wind Bracing</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-2">
+              <div class="acc-icon-wrap"><i class="fa fa-tools"></i></div>
+              <div class="acc-title">Flange Bracing</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-3">
+              <div class="acc-icon-wrap"><i class="fa fa-ruler-combined"></i></div>
+              <div class="acc-title">Base Angles</div>
+            </div>
+            <div class="acc-item reveal reveal-delay-4" style="grid-column: 1 / -1;">
+              <div class="acc-icon-wrap"><i class="fa fa-link"></i></div>
+              <div class="acc-title">Clips & Miscellaneous Members</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PURLIN SPECS & CLADDING -->
+  <section class="section" style="background:#f9fafb; padding: 80px 0;">
+    <div class="container">
+      <div class="row" style="display:flex; flex-wrap:wrap; gap:40px;">
+        <!-- Purlin Specs -->
+        <div class="col-md-6 reveal" style="flex:1; min-width:320px;">
+          <div class="highlight-badge">CNC Precision</div>
+          <h2 class="sec-title" style="margin-bottom:24px;">Z & C Purlin Specifications</h2>
+          <div class="spec-table-wrap">
+            <table class="spec-table">
+              <thead>
+                <tr>
+                  <th><i class="fa fa-ruler"></i> Parameter</th>
+                  <th>Specification Range</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Length</strong></td>
+                  <td>Custom dimensions as required</td>
+                </tr>
+                <tr>
+                  <td><strong>Web (h)</strong></td>
+                  <td>150 - 300 mm</td>
+                </tr>
+                <tr>
+                  <td><strong>Flange (b)</strong></td>
+                  <td>50 - 85 mm</td>
+                </tr>
+                <tr>
+                  <td><strong>Thickness (t)</strong></td>
+                  <td>1.75 - 3.00 mm</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <!-- Cladding -->
+        <div class="col-md-6 reveal reveal-delay-1" style="flex:1; min-width:320px;">
+          <div class="highlight-badge">Durable Finish</div>
+          <h2 class="sec-title" style="margin-bottom:24px;">Roof & Wall Cladding</h2>
+          <div class="cladding-card">
+            <div style="display:flex; gap:30px; margin-bottom: 24px;">
+              <div>
+                <span class="spec-lbl" style="font-size:10px; margin-bottom:4px;">Effective Width</span>
+                <span class="spec-val" style="font-size:28px;">1000<small style="font-size:16px;">mm</small></span>
+              </div>
+              <div>
+                <span class="spec-lbl" style="font-size:10px; margin-bottom:4px;">Actual Width</span>
+                <span class="spec-val" style="font-size:28px; color:var(--text-mid);">1060<small
+                    style="font-size:16px;">mm</small></span>
+              </div>
+            </div>
+
+            <hr style="border-top:1px solid #eee; margin:20px 0;">
+
+            <ul>
+              <li><i class="fa fa-shield-alt"></i> High durability multi-layer coating</li>
+              <li><i class="fa fa-cloud-sun-rain"></i> Extreme weather resistance</li>
+              <li><i class="fa fa-tint-slash"></i> 100% Leak-proof overlap design</li>
+              <li><i class="fa fa-temperature-low"></i> Thermal insulation compatibility</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONNECTION SYSTEMS -->
+  <section class="section section-white" style="padding: 80px 0;">
+    <div class="container">
+      <div class="text-center mb-56">
+        <div class="sec-label" style="justify-content:center;">Joining Integrity</div>
+        <h2 class="sec-title">Connection Systems</h2>
+        <p class="sec-lead" style="margin:0 auto; max-width:600px;">Reliable structural connections designed for optimal
+          load transfer, fast assembly, and long-term joint integrity.</p>
+      </div>
+
+      <div class="conn-grid">
+        <div class="conn-card reveal">
+          <div class="conn-icon"><i class="fa fa-layer-group"></i></div>
+          <h3 class="conn-title">Overlapping Connection</h3>
+          <p style="color:var(--text-mid); font-size:14px; line-height:1.6;">Utilizes structural overlap to ensure
+            seamless capacity transfer and deflection control in secondary members.</p>
+        </div>
+
+        <div class="conn-card reveal reveal-delay-1">
+          <div class="conn-icon"><i class="fa fa-compress-arrows-alt"></i></div>
+          <h3 class="conn-title">Butt Connection</h3>
+          <p style="color:var(--text-mid); font-size:14px; line-height:1.6;">Direct flushed connections for rigid
+            joining of structural segments, ensuring precise alignment and shear resistance.</p>
+        </div>
+
+        <div class="conn-card reveal reveal-delay-2">
+          <div class="conn-icon"><i class="fa fa-grip-lines"></i></div>
+          <h3 class="conn-title">Sleeve Connection</h3>
+          <p style="color:var(--text-mid); font-size:14px; line-height:1.6;">Employs robust insert sleeves to maintain
+            continuity across sections, providing superior rotational stiffness.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PEB ACCESSORIES -->
+  <section class="section section-gradient" style="padding: 80px 0;">
+    <div class="container">
+      <div class="text-center" style="margin-bottom: 50px;">
+        <div class="highlight-badge badge-white">Complete Solutions</div>
+        <h2 class="sec-title" style="color:#fff; margin-top:10px;">PEB Accessories</h2>
+        <p style="color:rgba(255,255,255,0.7); max-width:600px; margin:10px auto 0;">Everything you need to complete
+          your facility. Our accessories seamlessly integrate into the PEB framework for maximum functionality and
+          aesthetics.</p>
+      </div>
+
+      <div class="accessories-grid">
+        <div class="acc-item reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i class="fa fa-fan"></i>
+          </div>
+          <div class="acc-title" style="color:#fff;">Turbo Ventilators & Ridge Vents</div>
+        </div>
+        <div class="acc-item reveal reveal-delay-1"
+          style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i
+              class="fa fa-door-open"></i></div>
+          <div class="acc-title" style="color:#fff;">Roll-up & Sliding Doors</div>
+        </div>
+        <div class="acc-item reveal reveal-delay-2"
+          style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i class="fa fa-sun"></i>
+          </div>
+          <div class="acc-title" style="color:#fff;">Skylights & Polycarbonate Sheets</div>
+        </div>
+        <div class="acc-item reveal" style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i
+              class="fa fa-bars-staggered"></i></div>
+          <div class="acc-title" style="color:#fff;">Wall Louvers</div>
+        </div>
+        <div class="acc-item reveal reveal-delay-1"
+          style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i
+              class="fa fa-screw-drill"></i></div>
+          <div class="acc-title" style="color:#fff;">Fasteners (Bolts, Screws)</div>
+        </div>
+        <div class="acc-item reveal reveal-delay-2"
+          style="background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.1);">
+          <div class="acc-icon-wrap" style="background:rgba(255,255,255,0.1); color:#fff;"><i
+              class="fa fa-fill-drip"></i></div>
+          <div class="acc-title" style="color:#fff;">Sealants & Insulation</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <div class="cta-band">
+    <div class="container" style="position:relative;">
+      <h2>Need Custom Structural Components?</h2>
+      <p>Share your drawings and specifications — we'll fabricate to exact tolerances, on schedule.</p>
+      <a href="#" class="btn-outline-white" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i>
+        Request a Free Quote</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer" id="contact">
+    <div class="footer-top">
+      <div class="container">
+        <div class="footer-grid">
+          <!-- Column 1: Branding -->
+          <div>
+            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
+              class="footer-brand-logo">
+            <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
+            <div class="footer-socials">
+              <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+              <a href="#" class="footer-social-btn" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+            </div>
+          </div>
+
+          <!-- Column 2: Quick Links -->
+          <div>
+            <div class="footer-heading">Quick Links</div>
+            <ul class="footer-links">
+              <li><a href="index.html"><i class="fa fa-chevron-right"></i> Home</a></li>
+              <li><a href="about.html"><i class="fa fa-chevron-right"></i> About Us</a></li>
+              <li><a href="project.html"><i class="fa fa-chevron-right"></i> Projects</a></li>
+              <li><a href="services-peb.html"><i class="fa fa-chevron-right"></i> Services</a></li>
+              <li><a href="manufacturing-peb.html"><i class="fa fa-chevron-right"></i> Manufacturing</a></li>
+              <li><a href="contact.html"><i class="fa fa-chevron-right"></i> Contact</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 3: Company -->
+          <div>
+            <div class="footer-heading">Company</div>
+            <ul class="footer-links">
+              <li><a href="hr-desk.html"><i class="fa fa-chevron-right"></i> Careers</a></li>
+              <li><a href="gallery.html"><i class="fa fa-chevron-right"></i> Gallery</a></li>
+              <li><a href="blogs.html"><i class="fa fa-chevron-right"></i> Blogs</a></li>
+            </ul>
+          </div>
+
+          <!-- Column 4: Contact Us -->
+          <div>
+            <div class="footer-heading">Contact Us</div>
+            <ul class="footer-contact-list">
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-building"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">HEAD
+                    OFFICE</strong><br>NS-11, Plot NS-11, 1st Plot at BIADA, Gate No.5, Patliputra Industrial Area,
+                  Patna – 800013</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-industry"></i></span>
+                <div><strong
+                    style="color:rgba(255,255,255,0.7);font-size:11px;font-family:var(--font-mono);letter-spacing:0.05em;">PEB
+                    DIVISION</strong><br>Plot IP-1,2,3&amp;4, Industrial Area Goraul Phase-II, Saraiya, Muzaffarpur,
+                  Bihar – 843126</div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-phone"></i></span>
+                <div><a href="tel:+917463843731">+91 74638 43731</a><br><a href="tel:+919229893797">+91 92298 93797</a>
+                </div>
+              </li>
+              <li class="footer-contact-item"><span class="icon"><i class="fa fa-envelope"></i></span>
+                <div><a href="mailto:Info@aishra.in">Info@aishra.in</a><br><a
+                    href="mailto:projects.aishra@gmail.com">projects.aishra@gmail.com</a></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container">
+        <div class="footer-bottom-inner"
+          style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 15px; align-items: center;">
+          <span>©
+            <script>document.write(new Date().getFullYear())</script> <span class="hl">Aishra Technofab
+              Engineers</span>. All rights reserved.
+          </span>
+          <div style="display: flex; gap: 20px;">
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Privacy Policy</a>
+            <a href="#" style="color: inherit; text-decoration: none; font-size: 13px; transition: color 0.3s;"
+              onmouseover="this.style.color='#e85d04'" onmouseout="this.style.color='inherit'">Terms & Conditions</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- QUOTE MODAL -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()"><i class="fa fa-times"></i></button>
+      <h2 class="modal-title">Request a Quote</h2>
+      <p class="modal-subtitle">Fill in your details and we'll get back to you within 24 hours.</p>
+      <form onsubmit="return false;">
+        <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input"
+            placeholder="Your name"></div>
+        <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input"
+            placeholder="+91 XXXXX XXXXX"></div>
+        <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input"
+            placeholder="you@example.com"></div>
+        <div class="form-group"><label class="form-label">Component Required</label>
+          <select class="form-select">
+            <option value="">Select component type</option>
+            <option>Columns</option>
+            <option>Rafters</option>
+            <option>Beams</option>
+            <option>Portal Frames</option>
+            <option>Built-up Sections</option>
+            <option>Complete PEB System</option>
+          </select>
+        </div>
+        <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea"
+            placeholder="Describe your requirements, span, load specs..."></textarea></div>
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;"><i
+            class="fa fa-paper-plane"></i> Send Enquiry</button>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => { setTimeout(() => document.getElementById('pageLoader').classList.add('hidden'), 400); });
+    document.getElementById('navToggle').addEventListener('click', () => { document.getElementById('navLinks').classList.toggle('open'); });
+    document.querySelectorAll('.dropdown-toggle').forEach(item => {
+      item.addEventListener('click', function (e) {
+        if (window.innerWidth <= 992) { e.preventDefault(); this.parentElement.classList.toggle('open'); }
+      });
+    });
+    function openModal() { document.getElementById('quoteModal').classList.add('active'); }
+    function closeModal() { document.getElementById('quoteModal').classList.remove('active'); }
+    document.getElementById('quoteModal').addEventListener('click', e => { if (e.target === document.getElementById('quoteModal')) closeModal(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+    const obs = new IntersectionObserver(entries => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }), { threshold: 0.1 });
+    document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+  </script>
+</body>
+
+</html>

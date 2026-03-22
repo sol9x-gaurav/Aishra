@@ -1,0 +1,119 @@
+/* Future Goals Section Enhancements */
+
+.future-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 30px;
+  margin-top: 50px;
+}
+
+.future-card {
+  background: #ffffff;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  position: relative;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  z-index: 1;
+  text-align: center;
+  overflow: hidden;
+}
+
+.future-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 5px;
+  background: linear-gradient(90deg, var(--navy), var(--primary));
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.4s ease;
+  z-index: 2;
+}
+
+.future-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(232, 93, 4, 0.15);
+}
+
+.future-card:hover::before {
+  transform: scaleX(1);
+}
+
+.future-icon {
+  width: 70px;
+  height: 70px;
+  margin: 0 auto 24px;
+  background: var(--navy);
+  color: #fff;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28px;
+  transition: all 0.4s ease;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(26, 39, 68, 0.2);
+}
+
+.future-icon::after {
+  content: '';
+  position: absolute;
+  top: -8px; left: -8px; right: -8px; bottom: -8px;
+  border-radius: 50%;
+  border: 1.5px dashed var(--navy);
+  animation: spin-dash 10s linear infinite;
+  opacity: 0;
+  transition: opacity 0.4s, border-color 0.4s;
+}
+
+.future-card:hover .future-icon {
+  background: var(--primary);
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(232, 93, 4, 0.3);
+}
+
+.future-card:hover .future-icon::after {
+  opacity: 1;
+  border-color: var(--primary);
+  animation: spin-dash 6s linear infinite;
+}
+
+@keyframes spin-dash {
+  100% { transform: rotate(360deg); }
+}
+
+.future-title {
+  font-size: 22px;
+  color: var(--navy);
+  font-weight: 800;
+  margin-bottom: 16px;
+  transition: color 0.3s ease;
+}
+
+.future-card:hover .future-title {
+  color: var(--primary);
+}
+
+.future-text {
+  font-size: 15px;
+  color: var(--text-mid);
+  line-height: 1.7;
+  margin: 0;
+}
+
+@media (max-width: 992px) {
+  .future-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .future-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+  .future-card {
+    padding: 30px 20px;
+  }
+}
