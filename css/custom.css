@@ -1626,7 +1626,7 @@ img {
   height: 50px;
   width: auto;
   margin-bottom: 16px;
-  filter: brightness(10);
+  filter: brightness(1.2);
   opacity: 0.88;
 }
 
@@ -3339,38 +3339,49 @@ img {
   border: 1px solid var(--border);
   overflow: hidden;
   transition: var(--transition);
+  cursor: pointer;
+  transform: translateZ(0);
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+  mask-image: radial-gradient(white, black);
 }
 
 .product-app-card:hover {
-  transform: translateY(-5px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-lg);
   border-color: var(--primary);
 }
 
 .product-app-card-img {
-  height: 160px;
+  height: 180px;
   overflow: hidden;
+  position: relative;
 }
 
 .product-app-card-img img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: transform 0.5s;
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
 .product-app-card:hover .product-app-card-img img {
-  transform: scale(1.08);
+  transform: scale(1.1);
 }
 
 .product-app-card-body {
-  padding: 16px 18px;
+  padding: 18px 20px;
 }
 
 .product-app-card-name {
   font-family: var(--font-display);
-  font-size: 17px;
+  font-size: 18px;
   color: var(--navy);
+  font-weight: 700;
+  transition: color 0.3s ease;
+}
+
+.product-app-card:hover .product-app-card-name {
+  color: var(--primary);
 }
 
 /* Profile cards */
