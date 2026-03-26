@@ -62,7 +62,7 @@
     <div class="container">
       <ul class="nav-links" id="navLinks">
         <li><a href="index.html">Home</a></li>
-        <li><a href="about.html" class="active">About</a></li>
+        <li><a href="about.html">About</a></li>
         <li><a href="project.html">Projects</a></li>
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">Products</a>
@@ -74,23 +74,8 @@
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
           <ul class="nav-dropdown">
-            <li class="has-dd has-nested-dd">
-              <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
-              <ul class="nav-nested-dropdown">
-                <li><a href="products/pre-engineered-buildings.html">Pre-Engineered Buildings</a></li>
-                <li><a href="products/multistory-buildings.html">Multistory Buildings</a></li>
-                <li><a href="products/steel-structure-fabricator.html">Steel Structure Fabricator</a></li>
-                <li><a href="products/structural-steel-fabricator.html">Structural Steel Fabricator</a></li>
-                <li><a href="products/pre-engineered-structural-steel.html">Pre-Engineered Structural Steel</a></li>
-              </ul>
-            </li>
+            <li><a href="products/peb-structure.html">PEB Structure</a></li>
             <li><a href="products/lgsf.html">LGSF</a></li>
-            <li><a href="products/puf-panel.html">PUF Panel</a></li>
-            <li><a href="products/purlin-girt.html">Purlin / Girt</a></li>
-            <li><a href="products/roofing-sheet.html">Roofing Sheet</a></li>
-            <li><a href="products/space-frame.html">Space Frame</a></li>
-            <li><a href="products/tensile-fabric.html">Tensile Fabric</a></li>
-            <li><a href="products/air-ventilation.html">Air Ventilation</a></li>
           </ul>
         </li>
 
@@ -106,9 +91,9 @@
       </ul>
       <div class="nav-cta-wrapper">
         <a href="brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
-          Download Brochure</a>
-        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Request
-          Quote</a>
+          <span>Download Brochure</span></a>
+        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> <span>Request
+            Quote</span></a>
       </div>
       <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
     </div>
@@ -198,8 +183,7 @@
         <div class="footer-grid">
           <!-- Column 1: Branding -->
           <div>
-            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
-              class="footer-brand-logo">
+            <img loading="lazy" src="images/White_Logo.png" alt="Aishra Technofab Engineers" class="footer-brand-logo">
             <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
             <div class="footer-socials">
               <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -281,36 +265,72 @@
     </div>
   </footer>
 
-  <!-- QUOTE MODAL -->
+    <!-- QUOTE MODAL -->
   <div class="modal-overlay" id="quoteModal">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()"><i class="fa fa-times"></i></button>
+      <button class="modal-close" onclick="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+
       <h2 class="modal-title">Request a Quote</h2>
       <p class="modal-subtitle">Fill in your details — our team will respond within 24 hours.</p>
-      <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input"
-          placeholder="Your full name"></div>
-      <div class="form-group"><label class="form-label">Phone Number</label><input type="tel" class="form-input"
-          placeholder="+91 XXXXX XXXXX"></div>
-      <div class="form-group"><label class="form-label">Email Address</label><input type="email" class="form-input"
-          placeholder="you@example.com"></div>
-      <div class="form-group"><label class="form-label">Service Required</label>
-        <select class="form-select">
-          <option value="">Select a service</option>
-          <option>PEB Design & Engineering</option>
-          <option>Fabrication & Manufacturing</option>
-          <option>Installation & Erection</option>
-          <option>Turnkey Solutions</option>
-          <option>Industrial Shed & Warehouse</option>
-          <option>Pre Engineered Buildings</option>
-          <option>Z & C Purlins</option>
-          <option>Ceiling System</option>
-          <option>Other</option>
-        </select>
-      </div>
-      <div class="form-group"><label class="form-label">Project Details</label><textarea class="form-textarea"
-          placeholder="Describe your project — location, size, requirements..."></textarea></div>
-      <button class="btn-primary" style="width:100%;justify-content:center;padding:14px;"><i
-          class="fa fa-paper-plane"></i> Submit Request</button>
+
+      <!-- ✅ FORM START -->
+      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- 🔑 Your Access Key -->
+        <input type="hidden" name="access_key" value="ee309306-2133-4194-9889-ae7b6cbce187">
+
+        <input type="hidden" name="subject" value="Quote Request - Aishra Website">
+        <input type="hidden" name="from_name" value="Aishra Quote Form">
+
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Required</label>
+          <select name="service" class="form-select" required>
+            <option value="">Select a service</option>
+            <option>PEB Design & Engineering</option>
+            <option>Fabrication & Manufacturing</option>
+            <option>Installation & Erection</option>
+            <option>Turnkey Solutions</option>
+            <option>Industrial Shed & Warehouse</option>
+            <option>Pre Engineered Buildings</option>
+            <option>Z & C Purlins</option>
+            <option>Ceiling System</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Details</label>
+          <textarea name="message" class="form-textarea"
+            placeholder="Describe your project — location, size, requirements..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;">
+          <i class="fa fa-paper-plane"></i> Submit Request
+        </button>
+
+        <!-- ✅ Result message -->
+        <p id="quoteResult" style="margin-top:10px;"></p>
+
+      </form>
+      <!-- ✅ FORM END -->
+
     </div>
   </div>
 
@@ -433,7 +453,40 @@
         if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev(); startAuto(); }
       }, { passive: true });
     })();
-  </script>
+  
+    // quoteform
+    const quoteForm = document.getElementById("quoteForm");
+    if (quoteForm) {
+      const quoteResult = document.getElementById("quoteResult");
+      quoteForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(quoteForm);
+
+        const response = await fetch(quoteForm.action, {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          quoteResult.innerHTML = "✅ Quote request sent!";
+          quoteResult.style.color = "green";
+          quoteForm.reset();
+
+          // Optional: close modal after success
+          setTimeout(() => {
+            if (typeof closeModal === 'function') closeModal();
+          }, 1500);
+
+        } else {
+          quoteResult.innerHTML = "❌ Something went wrong!";
+          quoteResult.style.color = "red";
+        }
+      });
+    }
+</script>
 </body>
 
 </html>

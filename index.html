@@ -75,23 +75,8 @@
         <li class="has-dd">
           <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
           <ul class="nav-dropdown">
-            <li class="has-dd has-nested-dd">
-              <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
-              <ul class="nav-nested-dropdown">
-                <li><a href="products/pre-engineered-buildings.html">Pre-Engineered Buildings</a></li>
-                <li><a href="products/multistory-buildings.html">Multistory Buildings</a></li>
-                <li><a href="products/steel-structure-fabricator.html">Steel Structure Fabricator</a></li>
-                <li><a href="products/structural-steel-fabricator.html">Structural Steel Fabricator</a></li>
-                <li><a href="products/pre-engineered-structural-steel.html">Pre-Engineered Structural Steel</a></li>
-              </ul>
-            </li>
+            <li><a href="products/peb-structure.html">PEB Structure</a></li>
             <li><a href="products/lgsf.html">LGSF</a></li>
-            <li><a href="products/puf-panel.html">PUF Panel</a></li>
-            <li><a href="products/purlin-girt.html">Purlin / Girt</a></li>
-            <li><a href="products/roofing-sheet.html">Roofing Sheet</a></li>
-            <li><a href="products/space-frame.html">Space Frame</a></li>
-            <li><a href="products/tensile-fabric.html">Tensile Fabric</a></li>
-            <li><a href="products/air-ventilation.html">Air Ventilation</a></li>
           </ul>
         </li>
 
@@ -249,7 +234,7 @@
   <section class="section section-white" style="padding:0;">
     <div class="about-grid">
       <div class="about-img-col reveal">
-        <img loading="lazy" src="images/about.jpg" alt="Aishra Technofab Engineers facility">
+        <img loading="lazy" src="images/about2_cleanup.png" alt="Aishra Technofab Engineers facility">
         <div class="about-badge"><span class="about-badge-num">6+</span><span class="about-badge-text">Years of
             Excellence</span></div>
       </div>
@@ -451,12 +436,19 @@
           <div class="project-card-btn"><i class="fa fa-expand"></i></div>
         </div>
         <div class="project-card reveal reveal-delay-2">
-          <img loading="lazy" src="images/pro3.jpg" alt="Steel Modular Toilet">
-          <div class="project-overlay"><span class="project-cat">Sanitation Unit</span>
-            <h3 class="project-name">Steel Modular Toilet Initiative</h3>
-            <p class="project-loc"><i class="fa fa-location-dot"></i> Haj Bhavan Road, Patna, IND</p>
+          <img loading="lazy" src="images/p4.jpeg" alt="Safety Innovation Park">
+
+          <div class="project-overlay">
+            <span class="project-cat">Industrial Safety</span>
+            <h3 class="project-name">Safety Innovation Park</h3>
+            <p class="project-loc">
+              <i class="fa fa-location-dot"></i> Industrial Zone, Mumbai, IND
+            </p>
           </div>
-          <div class="project-card-btn"><i class="fa fa-expand"></i></div>
+
+          <div class="project-card-btn">
+            <i class="fa fa-expand"></i>
+          </div>
         </div>
       </div>
       <div class="text-center" style="margin-top:36px;"><a href="project.html" class="btn-outline-navy"><i
@@ -467,7 +459,7 @@
   <!-- WHY CHOOSE US -->
   <section class="section section-white" style="padding:0;">
     <div class="split-grid">
-      <div class="split-img-col reveal"><img loading="lazy" src="images/about-3.jpg" alt="Why Aishra"></div>
+      <div class="split-img-col reveal"><img loading="lazy" src="images/about4.png" alt="Why Aishra"></div>
       <div class="split-content-col reveal reveal-delay-2">
         <div class="sec-label">Why Choose Aishra</div>
         <h2 class="sec-title">Redefining Structural Excellence</h2>
@@ -595,7 +587,53 @@
           <p class="sec-lead">Ready to explore opportunities? Contact us today to embark on a journey of collaborative
             engineering.</p>
 
-          <form class="premium-form">
+
+
+          <form class="premium-form" action="https://api.web3forms.com/submit" method="POST">
+
+            <!-- 🔑 Replace with your Web3Forms Access Key -->
+            <input type="hidden" name="access_key" value="ee309306-2133-4194-9889-ae7b6cbce187">
+
+            <!-- Optional but useful -->
+            <input type="hidden" name="subject" value="New Enquiry from Aishra Website">
+            <input type="hidden" name="from_name" value="Aishra Technofab Website">
+
+            <div class="form-row">
+              <input type="text" name="name" placeholder="Full Name *" class="premium-input" required>
+            </div>
+
+            <div class="form-row">
+              <input type="email" name="email" placeholder="Email Address *" class="premium-input" required>
+            </div>
+
+            <div class="form-row split">
+              <input type="tel" name="phone" placeholder="Mobile Number *" class="premium-input" required>
+
+              <select name="service" class="premium-input" required style="cursor: pointer;">
+                <option value="" disabled selected>Interested In *</option>
+                <option value="PEB Design">PEB Design & Engineering</option>
+                <option value="Fabrication">Fabrication & Manufacturing</option>
+                <option value="Installation">Installation & Erection</option>
+                <option value="Turnkey">Turnkey Solutions</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-row">
+              <textarea name="message" placeholder="Your Message / Requirement *" class="premium-textarea"
+                required></textarea>
+            </div>
+
+            <button type="submit" class="premium-submit-btn">
+              <span>Send Message</span> <i class="fa fa-paper-plane"></i>
+            </button>
+
+            <!-- ✅ Success/Error Message -->
+            <p id="result" style="margin-top:10px;"></p>
+
+          </form>
+
+          <!-- <form class="premium-form">
             <div class="form-row">
               <input type="text" placeholder="Full Name *" class="premium-input" required>
             </div>
@@ -619,7 +657,7 @@
             <button type="submit" class="premium-submit-btn">
               <span>Send Message</span> <i class="fa fa-paper-plane"></i>
             </button>
-          </form>
+          </form> -->
         </div>
 
         <div class="map-wrapper">
@@ -656,8 +694,7 @@
         <div class="footer-grid">
           <!-- Column 1: Branding -->
           <div>
-            <img loading="lazy" src="images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
-              class="footer-brand-logo">
+            <img loading="lazy" src="images/White_Logo.png" alt="Aishra Technofab Engineers" class="footer-brand-logo">
             <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
             <div class="footer-socials">
               <a href="#" class="footer-social-btn" aria-label="Twitter"><i class="fa-brands fa-twitter"></i></a>
@@ -740,7 +777,7 @@
   </footer>
 
   <!-- QUOTE MODAL -->
-  <div class="modal-overlay" id="quoteModal">
+  <!-- <div class="modal-overlay" id="quoteModal">
     <div class="modal-box">
       <button class="modal-close" onclick="closeModal()"><i class="fa fa-times"></i></button>
       <h2 class="modal-title">Request a Quote</h2>
@@ -770,7 +807,77 @@
       <button class="btn-primary" style="width:100%;justify-content:center;padding:14px;"><i
           class="fa fa-paper-plane"></i> Submit Request</button>
     </div>
+  </div> -->
+
+  <!-- QUOTE MODAL -->
+  <div class="modal-overlay" id="quoteModal">
+    <div class="modal-box">
+      <button class="modal-close" onclick="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+
+      <h2 class="modal-title">Request a Quote</h2>
+      <p class="modal-subtitle">Fill in your details — our team will respond within 24 hours.</p>
+
+      <!-- ✅ FORM START -->
+      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- 🔑 Your Access Key -->
+        <input type="hidden" name="access_key" value="ee309306-2133-4194-9889-ae7b6cbce187">
+
+        <input type="hidden" name="subject" value="Quote Request - Aishra Website">
+        <input type="hidden" name="from_name" value="Aishra Quote Form">
+
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Required</label>
+          <select name="service" class="form-select" required>
+            <option value="">Select a service</option>
+            <option>PEB Design & Engineering</option>
+            <option>Fabrication & Manufacturing</option>
+            <option>Installation & Erection</option>
+            <option>Turnkey Solutions</option>
+            <option>Industrial Shed & Warehouse</option>
+            <option>Pre Engineered Buildings</option>
+            <option>Z & C Purlins</option>
+            <option>Ceiling System</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Details</label>
+          <textarea name="message" class="form-textarea"
+            placeholder="Describe your project — location, size, requirements..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;">
+          <i class="fa fa-paper-plane"></i> Submit Request
+        </button>
+
+        <!-- ✅ Result message -->
+        <p id="quoteResult" style="margin-top:10px;"></p>
+
+      </form>
+      <!-- ✅ FORM END -->
+
+    </div>
   </div>
+
 
   <script>
     /* ===== PAGE LOADER ===== */
@@ -891,6 +998,69 @@
         if (Math.abs(diff) > 50) { if (diff > 0) next(); else prev(); startAuto(); }
       }, { passive: true });
     })();
+
+
+    //web3forms
+    const form = document.querySelector(".premium-form");
+    const result = document.getElementById("result");
+
+    form.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(form);
+
+      const response = await fetch(form.action, {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        result.innerHTML = "✅ Message sent successfully!";
+        result.style.color = "green";
+        form.reset();
+      } else {
+        result.innerHTML = "❌ Something went wrong!";
+        result.style.color = "red";
+      }
+    });
+
+
+    // quoteform
+    const quoteForm = document.getElementById("quoteForm");
+    const quoteResult = document.getElementById("quoteResult");
+
+    quoteForm.addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const formData = new FormData(quoteForm);
+
+      const response = await fetch(quoteForm.action, {
+        method: "POST",
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        quoteResult.innerHTML = "✅ Quote request sent!";
+        quoteResult.style.color = "green";
+        quoteForm.reset();
+
+        // Optional: close modal after success
+        setTimeout(() => {
+          closeModal();
+        }, 1500);
+
+      } else {
+        quoteResult.innerHTML = "❌ Something went wrong!";
+        quoteResult.style.color = "red";
+      }
+    });
+
+
+
   </script>
 </body>
 

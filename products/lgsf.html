@@ -51,25 +51,10 @@
           </ul>
         </li>
         <li class="has-dd">
-          <a href="#" class="has-dropdown active">About PEB</a>
+          <a href="#" class="has-dropdown dropdown-toggle">About PEB</a>
           <ul class="nav-dropdown">
-            <li class="has-dd has-nested-dd">
-              <a href="#" class="has-dropdown dropdown-toggle">PEB Structure &amp; Structural Steel</a>
-              <ul class="nav-nested-dropdown">
-                <li><a href="pre-engineered-buildings.html">Pre-Engineered Buildings</a></li>
-                <li><a href="multistory-buildings.html">Multistory Buildings</a></li>
-                <li><a href="steel-structure-fabricator.html">Steel Structure Fabricator</a></li>
-                <li><a href="structural-steel-fabricator.html">Structural Steel Fabricator</a></li>
-                <li><a href="pre-engineered-structural-steel.html">Pre-Engineered Structural Steel</a></li>
-              </ul>
-            </li>
+            <li><a href="peb-structure.html">PEB Structure</a></li>
             <li><a href="lgsf.html">LGSF</a></li>
-            <li><a href="puf-panel.html">PUF Panel</a></li>
-            <li><a href="purlin-girt.html">Purlin / Girt</a></li>
-            <li><a href="roofing-sheet.html">Roofing Sheet</a></li>
-            <li><a href="space-frame.html">Space Frame</a></li>
-            <li><a href="tensile-fabric.html">Tensile Fabric</a></li>
-            <li><a href="air-ventilation.html">Air Ventilation</a></li>
           </ul>
         </li>
 
@@ -81,13 +66,13 @@
             <li><a href="../blogs.html">Blogs</a></li>
           </ul>
         </li>
-        <li><a href="../index.html#contact">Contact</a></li>
+        <li><a href="../contact.html">Contact</a></li>
       </ul>
       <div class="nav-cta-wrapper">
         <a href="../brochure/aishra-brochure.pdf" download class="nav-cta secondary"><i class="fa fa-download"></i>
-          Download Brochure</a>
-        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> Request
-          Quote</a>
+          <span>Download Brochure</span></a>
+        <a href="#" class="nav-cta" onclick="openModal();return false;"><i class="fa fa-paper-plane"></i> <span>Request
+            Quote</span></a>
       </div>
       <button class="nav-toggle" id="navToggle"><i class="fa fa-bars"></i> Menu</button>
     </div>
@@ -106,91 +91,466 @@
     </div>
   </div>
 
-  <!-- ABOUT THE PRODUCT -->
-  <section class="section section-white" style="padding:0;">
-    <div class="product-intro-grid">
-      <div class="product-intro-img reveal">
-        <img loading="lazy" src="../images/intro-lgsf.jpg" alt="LGSF (Light Gauge Steel Framing) Structure">
-      </div>
-      <div class="product-intro-content reveal reveal-delay-2">
-        <div class="sec-label">About the Product</div>
-        <h2 class="sec-title">Premium LGSF (Light Gauge Steel Framing) Manufacturing</h2>
-        <p style="color:var(--text-mid);line-height:1.8;margin-bottom:14px;">LGSF by Aishra Technofab represents the
-          pinnacle of accelerated, lightweight construction. Using cold-formed steel profiles, this system drastically
-          reduces dead loads while offering immense design flexibility. Excellent for low to mid-rise constructions, our
-          LGSF frameworks integrate seamlessly with various claddings, boasting superior thermal insulation, dimensional
-          stability, and rapid on-site assembly.</p>
-        <div style="display:flex;gap:12px;margin-top:28px;flex-wrap:wrap;">
-          <a href="../index.html#contact" class="btn-primary"><i class="fa fa-paper-plane"></i> Contact Us</a>
-          <a href="#" class="btn-outline-navy" onclick="openModal();return false;"><i class="fa fa-file-invoice"></i>
-            Request a Quote</a>
+  <!-- ABOUT LGSF -->
+  <style>
+    .hover-up {
+      transition: all 0.3s ease;
+    }
+
+    .hover-up:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px) !important;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1) !important;
+    }
+
+    .process-step {
+      position: relative;
+      z-index: 1;
+      padding: 30px;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .process-step:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .process-icon {
+      width: 70px;
+      height: 70px;
+      background: var(--navy);
+      color: #fff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      margin: 0 auto 20px;
+      position: relative;
+      z-index: 2;
+      border: 4px solid #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .process-connector {
+      position: absolute;
+      top: 65px;
+      left: 50%;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, var(--navy) 0%, rgba(26, 45, 76, 0.2) 100%);
+      z-index: 0;
+    }
+
+    .product-intro-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+    }
+
+    .tech-highlights-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+    }
+
+    .process-timeline-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 30px;
+      position: relative;
+      margin-top: 50px;
+    }
+
+    @media (max-width: 992px) {
+      .process-connector {
+        display: none;
+      }
+
+      .product-intro-grid,
+      .tech-highlights-grid {
+        grid-template-columns: 1fr;
+        gap: 30px !important;
+      }
+
+      .process-timeline-grid {
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      }
+    }
+
+    @media (max-width: 768px) {
+      .responsive-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .process-timeline-grid {
+        grid-template-columns: 1fr !important;
+      }
+
+      .sec-title {
+        font-size: 2rem !important;
+      }
+
+      .page-hero-title {
+        font-size: 2.2rem !important;
+      }
+
+      .section {
+        padding: 50px 0 !important;
+      }
+
+      .feature-card,
+      .process-step {
+        padding: 20px !important;
+      }
+
+      .footer-grid {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <section class="section section-white" style="padding:60px 0;">
+    <div class="container">
+      <div class="product-intro-grid" style="align-items: center; gap: 40px;">
+        <div class="product-intro-img reveal">
+          <img loading="lazy" src="../images/intro-lgsf.jpg" alt="LGSF (Light Gauge Steel Framing)"
+            style="border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.1);">
+        </div>
+        <div class="product-intro-content reveal reveal-delay-2">
+          <div class="sec-label">Advanced Construction</div>
+          <h2 class="sec-title">Premium LGSF Technology</h2>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:20px; font-size: 1.1rem;">LGSF (Light Gauge
+            Steel
+            Framing) is an advanced cold-formed steel construction technology that is revolutionizing the building
+            industry. It offers a <strong style="color:var(--primary);">Faster</strong>, <strong
+              style="color:var(--primary);">Stronger</strong>, and <strong
+              style="color:var(--primary);">Greener</strong>
+            alternative to traditional construction methods.</p>
+          <p style="color:var(--text-mid);line-height:1.8;margin-bottom:28px;">This system is ideal for mass housing and
+            modern infrastructure, where speed, quality, and cost-efficiency are critical. LGSF structures are
+            lightweight, durable, and precision-engineered, ensuring faster project completion with superior
+            performance.
+          </p>
+          <div style="display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="../contact.html" class="btn-primary"><i class="fa fa-paper-plane"></i> Contact Us</a>
+            <a href="#" class="btn-outline-navy" onclick="openModal();return false;"><i class="fa fa-file-invoice"></i>
+              Request a Quote</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ADVANTAGES -->
+  <!-- WHY CHOOSE LGSF -->
   <section class="section section-cream">
     <div class="container">
       <div class="text-center mb-40">
-        <div class="sec-label" style="justify-content:center;">Key Advantages</div>
-        <h2 class="sec-title">Engineered to Perfection</h2>
-        <p class="sec-lead" style="margin:0 auto;">Reliability and efficiency engineered directly into every structured
-          component for ultimate performance.</p>
+        <div class="sec-label" style="justify-content:center;">Value Proposition</div>
+        <h2 class="sec-title">Why Choose LGSF?</h2>
+        <p class="sec-lead" style="margin:0 auto;">Comprehensive benefits for every stakeholder in the construction
+          lifecycle.</p>
       </div>
-      <div class="design-grid reveal">
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i>
-          Exceptionally Lightweight</div>
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i>
-          Galvanized Corrosion Resistance</div>
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i> Easy
-          & Safe Installation</div>
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i> Zero
-          Shrinkage or Warping</div>
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i>
-          Excellent Acoustic Performance</div>
-        <div class="design-item"><i class="fa fa-check-circle" style="color:var(--primary);margin-right:8px;"></i>
-          Eco-Friendly Operations</div>
 
+      <div class="responsive-grid"
+        style="display:grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-top: 40px;">
+        <!-- Core Material Advantages -->
+        <div class="feature-card reveal reveal-delay-0"
+          style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--primary); transition: transform 0.3s ease;">
+          <div style="font-size: 2rem; color: var(--primary); margin-bottom: 20px;"><i class="fa fa-cubes"></i></div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 15px;">Core Material Advantages</h3>
+          <ul style="list-style:none; padding:0; margin:0;" class="check-list">
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--primary); margin-top:4px;"></i> <span>High strength and durability</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--primary); margin-top:4px;"></i> <span>Dimensionally stable</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--primary); margin-top:4px;"></i> <span>Consistent material quality</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--primary); margin-top:4px;"></i> <span>Non-combustible and fire-resistant</span></li>
+            <li style="margin-bottom:0; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--primary); margin-top:4px;"></i> <span>Excellent earthquake resistance</span></li>
+          </ul>
+        </div>
+
+        <!-- Benefits for Builders -->
+        <div class="feature-card reveal reveal-delay-1"
+          style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid var(--navy); transition: transform 0.3s ease;">
+          <div style="font-size: 2rem; color: var(--navy); margin-bottom: 20px;"><i class="fa fa-hard-hat"></i></div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 15px;">Benefits for Builders</h3>
+          <ul style="list-style:none; padding:0; margin:0;" class="check-list">
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--navy); margin-top:4px;"></i> <span><strong>Faster</strong> construction (2x–3x
+                quicker)</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--navy); margin-top:4px;"></i> <span>Lightweight structure</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--navy); margin-top:4px;"></i> <span>Minimal material wastage</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--navy); margin-top:4px;"></i> <span>High precision and quality control</span></li>
+            <li style="margin-bottom:0; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:var(--navy); margin-top:4px;"></i> <span>Safer and cleaner construction process</span></li>
+          </ul>
+        </div>
+
+        <!-- Benefits for End Users -->
+        <div class="feature-card reveal reveal-delay-2"
+          style="background:#fff; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.05); border-top: 4px solid #2ecc71; transition: transform 0.3s ease;">
+          <div style="font-size: 2rem; color: #2ecc71; margin-bottom: 20px;"><i class="fa fa-leaf"></i></div>
+          <h3 style="font-size: 1.25rem; margin-bottom: 15px;">Benefits for End Users</h3>
+          <ul style="list-style:none; padding:0; margin:0;" class="check-list">
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:#2ecc71; margin-top:4px;"></i> <span>Better indoor air quality</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:#2ecc71; margin-top:4px;"></i> <span>Fire and insect resistance</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:#2ecc71; margin-top:4px;"></i> <span>Low maintenance and long design life</span></li>
+            <li style="margin-bottom:10px; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:#2ecc71; margin-top:4px;"></i> <span>Cost-effective over lifecycle</span></li>
+            <li style="margin-bottom:0; display:flex; gap:10px;"><i class="fa fa-check-circle"
+                style="color:#2ecc71; margin-top:4px;"></i> <span><strong>Greener</strong> & sustainable
+                buildings</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- KEY ADVANTAGES -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="text-center mb-40">
+        <div class="sec-label" style="justify-content:center;">Performance</div>
+        <h2 class="sec-title">Key Advantages</h2>
+      </div>
+      <div class="design-grid reveal responsive-grid"
+        style="display: grid; gap: 20px; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-bolt" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i> Accelerated
+          construction speed</div>
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-shield-alt" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i> Lightweight
+          yet strong system</div>
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-droplet-slash" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i>
+          Galvanized corrosion resistance</div>
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-temperature-empty" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i>
+          Thermal & acoustic insulation</div>
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-recycle" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i> Environmentally
+          sustainable</div>
+        <div class="design-item hover-up" style="padding: 15px 20px; background: #f8f9fa; border-radius: 8px;"><i
+            class="fa fa-bullseye" style="color:var(--primary);margin-right:8px; font-size: 1.2rem;"></i> Precision
+          ensures zero errors</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONSTRUCTION PROCESS -->
+  <section class="section section-cream" style="overflow: hidden;">
+    <div class="container">
+      <div class="text-center mb-40">
+        <div class="sec-label" style="justify-content:center;">Workflow</div>
+        <h2 class="sec-title">Construction Process</h2>
+        <p class="sec-lead" style="margin:0 auto;">A seamless, precision-driven timeline from concept to completion.</p>
+      </div>
+
+      <div class="process-timeline-grid">
+        <!-- Step 1 -->
+        <div class="reveal reveal-delay-0" style="position: relative;">
+          <div class="process-connector d-none d-lg-block"></div>
+          <div class="process-step">
+            <div class="process-icon"><i class="fa fa-cubes"></i></div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--navy);">01. 3D Modelling</h4>
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin: 0;">BIM Design & Virtual Planning</p>
+          </div>
+        </div>
+        <!-- Step 2 -->
+        <div class="reveal reveal-delay-1" style="position: relative;">
+          <div class="process-connector d-none d-lg-block"></div>
+          <div class="process-step">
+            <div class="process-icon"><i class="fa fa-drafting-compass"></i></div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--navy);">02. Detailing</h4>
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin: 0;">Engineering & Structuring</p>
+          </div>
+        </div>
+        <!-- Step 3 -->
+        <div class="reveal reveal-delay-2" style="position: relative;">
+          <div class="process-connector d-none d-lg-block"></div>
+          <div class="process-step">
+            <div class="process-icon"><i class="fa fa-cogs"></i></div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--navy);">03. Manufacturing</h4>
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin: 0;">Automated Roll-Forming</p>
+          </div>
+        </div>
+        <!-- Step 4 -->
+        <div class="reveal reveal-delay-3" style="position: relative;">
+          <div class="process-connector d-none d-lg-block"></div>
+          <div class="process-step">
+            <div class="process-icon"><i class="fa fa-tools"></i></div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--navy);">04. Assembly</h4>
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin: 0;">Component Pre-Assembly</p>
+          </div>
+        </div>
+        <!-- Step 5 -->
+        <div class="reveal reveal-delay-4" style="position: relative;">
+          <div class="process-step">
+            <div class="process-icon" style="background: var(--primary);"><i class="fa fa-building"></i></div>
+            <h4 style="font-size: 1.1rem; margin-bottom: 10px; color: var(--navy);">05. Installation</h4>
+            <p style="font-size: 0.9rem; color: var(--text-mid); margin: 0;">On-site Construction</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TECHNICAL HIGHLIGHTS -->
+  <section class="section section-white">
+    <div class="container">
+      <div class="tech-highlights-grid" style="align-items: center; gap: 50px;">
+        <div class="reveal reveal-delay-0">
+          <div class="sec-label">Specifications</div>
+          <h2 class="sec-title">Technical Highlights</h2>
+          <p style="color:var(--text-mid);line-height:1.7;margin-bottom:30px;">Engineered to meet global standards with
+            uncompromising resilience.</p>
+          <ul style="list-style:none; padding:0; margin:0;">
+            <li
+              style="margin-bottom:15px; display:flex; gap:15px; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+              <div
+                style="width: 40px; height: 40px; border-radius: 50%; background: rgba(30, 48, 80, 0.1); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fa fa-wind"></i>
+              </div>
+              <div><strong>Wind Resistance:</strong> Up to high-speed wind conditions</div>
+            </li>
+            <li
+              style="margin-bottom:15px; display:flex; gap:15px; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+              <div
+                style="width: 40px; height: 40px; border-radius: 50%; background: rgba(30, 48, 80, 0.1); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fa fa-house-crack"></i>
+              </div>
+              <div><strong>Earthquake Resistance:</strong> Designed for extreme seismic zones</div>
+            </li>
+            <li
+              style="margin-bottom:15px; display:flex; gap:15px; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+              <div
+                style="width: 40px; height: 40px; border-radius: 50%; background: rgba(232, 93, 4, 0.1); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fa fa-fire"></i>
+              </div>
+              <div><strong>Fire Rating:</strong> 1–4 hours depending on design</div>
+            </li>
+            <li
+              style="margin-bottom:15px; display:flex; gap:15px; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+              <div
+                style="width: 40px; height: 40px; border-radius: 50%; background: rgba(30, 48, 80, 0.1); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fa fa-dumbbell"></i>
+              </div>
+              <div><strong>Structural Integrity:</strong> High strength with lightweight sections</div>
+            </li>
+            <li
+              style="margin-bottom:0; display:flex; gap:15px; align-items: center; padding: 15px; background: #f8f9fa; border-radius: 8px;">
+              <div
+                style="width: 40px; height: 40px; border-radius: 50%; background: rgba(30, 48, 80, 0.1); color: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                <i class="fa fa-globe"></i>
+              </div>
+              <div><strong>Global Standards:</strong> Designed as per international & Indian norms</div>
+            </li>
+          </ul>
+        </div>
+        <div class="reveal reveal-delay-2" style="position: relative;">
+          <img loading="lazy" src="../images/intro-lgsf.jpg"
+            style="width: 100%; border-radius: 12px; box-shadow: 0 15px 40px rgba(0,0,0,0.15);"
+            alt="Technical Highlights">
+        </div>
       </div>
     </div>
   </section>
 
   <!-- APPLICATIONS -->
-  <section class="section section-white">
+  <section class="section section-cream">
     <div class="container">
       <div class="text-center mb-40">
-        <div class="sec-label" style="justify-content:center;">Applications</div>
-        <h2 class="sec-title">Where We Build</h2>
-        <p class="sec-lead" style="margin:0 auto;">LGSF (Light Gauge Steel Framing) serves a wide range of massive
-          infrastructural landscapes and premium projects.</p>
+        <div class="sec-label" style="justify-content:center;">Versatile Usage</div>
+        <h2 class="sec-title">Applications</h2>
+        <p class="sec-lead" style="margin:0 auto;">LGSF is highly adaptable for diverse infrastructure sectors.</p>
       </div>
-      <div class="product-app-grid" style="grid-template-columns: repeat(3, 1fr); display: grid; gap: 24px;">
-        <div class="product-app-card reveal reveal-delay-0">
-          <div class="product-app-card-img"><img loading="lazy" src="../images/app_warehouse.png"
-              alt="Residential Housing"></div>
-          <div class="product-app-card-body">
-            <div class="project-cat">Urban</div>
-            <div class="product-app-card-name" style="font-size: 16px;">Residential Housing</div>
-          </div>
-        </div>
-        <div class="product-app-card reveal reveal-delay-1">
-          <div class="product-app-card-img"><img loading="lazy" src="../images/app_factory.png" alt="Site Offices">
+      <div class="product-app-grid responsive-grid"
+        style="grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); display: grid; gap: 24px;">
+        <div class="product-app-card hover-up reveal reveal-delay-0">
+          <div class="product-app-card-img" style="height: 200px; overflow: hidden;"><img loading="lazy"
+              src="../images/mass.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Housing">
           </div>
           <div class="product-app-card-body">
-            <div class="project-cat">Site Setup</div>
-            <div class="product-app-card-name" style="font-size: 16px;">Site Offices</div>
+            <div class="project-cat" style="color: var(--primary);">Mass Housing</div>
+            <div class="product-app-card-name" style="font-size: 17px;">Residential & Mass Housing</div>
           </div>
         </div>
-        <div class="product-app-card reveal reveal-delay-2">
-          <div class="product-app-card-img"><img loading="lazy" src="../images/app_airport.png"
-              alt="Hospital Extensions"></div>
+        <div class="product-app-card hover-up reveal reveal-delay-1">
+          <div class="product-app-card-img" style="height: 200px; overflow: hidden;"><img loading="lazy"
+              src="../images/staff.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Site Setup">
+          </div>
           <div class="product-app-card-body">
-            <div class="project-cat">Healthcare</div>
-            <div class="product-app-card-name" style="font-size: 16px;">Hospital Extensions</div>
+            <div class="project-cat" style="color: var(--primary);">Commercial</div>
+            <div class="product-app-card-name" style="font-size: 17px;">Site Offices & Portable Structures</div>
           </div>
         </div>
+        <div class="product-app-card hover-up reveal reveal-delay-2">
+          <div class="product-app-card-img" style="height: 200px; overflow: hidden;"><img loading="lazy"
+              src="../images/health.png" style="width: 100%; height: 100%; object-fit: cover;" alt="Healthcare">
+          </div>
+          <div class="product-app-card-body">
+            <div class="project-cat" style="color: var(--primary);">Medical</div>
+            <div class="product-app-card-name" style="font-size: 17px;">Hospitals & Healthcare Extensions</div>
+          </div>
+        </div>
+        <!-- <div class="product-app-card hover-up reveal reveal-delay-3">
+          <div class="product-app-card-img"
+            style="height: 200px; overflow: hidden; background: var(--navy); display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff;">
+            <i class="fa fa-school"></i>
+          </div>
+          <div class="product-app-card-body">
+            <div class="project-cat" style="color: var(--primary);">Education</div>
+            <div class="product-app-card-name" style="font-size: 17px;">Schools & Institutional Buildings</div>
+          </div>
+        </div> -->
+        <!-- <div class="product-app-card hover-up reveal reveal-delay-4">
+          <div class="product-app-card-img"
+            style="height: 200px; overflow: hidden; background: #e85d04; display: flex; align-items: center; justify-content: center; font-size: 4rem; color: #fff;">
+            <i class="fa fa-industry"></i>
+          </div>
+          <div class="product-app-card-body">
+            <div class="project-cat" style="color: var(--primary);">Industrial</div>
+            <div class="product-app-card-name" style="font-size: 17px;">Commercial & Industrial Buildings</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </section>
 
+  <!-- TECHNOLOGY & INNOVATION -->
+  <section class="section section-white">
+    <div class="container text-center">
+      <div class="sec-label" style="justify-content:center;">Innovation</div>
+      <h2 class="sec-title mb-40">Technology at the Core</h2>
+      <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+        <span
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #f8f9fa; border-radius: 30px; border: 1px solid #e1e1e1; font-size: 14px; font-weight: 600; color: var(--navy);"><i
+            class="fa fa-microchip" style="color: var(--primary);"></i> Advanced CFS Technology</span>
+        <span
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #f8f9fa; border-radius: 30px; border: 1px solid #e1e1e1; font-size: 14px; font-weight: 600; color: var(--navy);"><i
+            class="fa fa-cogs" style="color: var(--primary);"></i> Automated Roll-Forming</span>
+        <span
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #f8f9fa; border-radius: 30px; border: 1px solid #e1e1e1; font-size: 14px; font-weight: 600; color: var(--navy);"><i
+            class="fa fa-laptop-code" style="color: var(--primary);"></i> BIM Integration</span>
+        <span
+          style="display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; background: #f8f9fa; border-radius: 30px; border: 1px solid #e1e1e1; font-size: 14px; font-weight: 600; color: var(--navy);"><i
+            class="fa fa-people-carry-box" style="color: var(--primary);"></i> Reduced Labor Dependency</span>
       </div>
     </div>
   </section>
@@ -212,7 +572,7 @@
         <div class="footer-grid">
           <!-- Column 1: Branding -->
           <div>
-            <img loading="lazy" src="../images/logo-removebg-preview.png" alt="Aishra Technofab Engineers"
+            <img loading="lazy" src="../images/White_Logo.png" alt="Aishra Technofab Engineers"
               class="footer-brand-logo">
             <p class="footer-brand-desc">Delivering Complete PEB & Structural Solutions Across India</p>
             <div class="footer-socials">
@@ -295,31 +655,72 @@
     </div>
   </footer>
 
+    <!-- QUOTE MODAL -->
   <div class="modal-overlay" id="quoteModal">
     <div class="modal-box">
-      <button class="modal-close" onclick="closeModal()"><i class="fa fa-times"></i></button>
+      <button class="modal-close" onclick="closeModal()">
+        <i class="fa fa-times"></i>
+      </button>
+
       <h2 class="modal-title">Request a Quote</h2>
-      <p class="modal-subtitle">We'll respond within 24 hours.</p>
-      <div class="form-group"><label class="form-label">Full Name</label><input type="text" class="form-input"
-          placeholder="Your full name"></div>
-      <div class="form-group"><label class="form-label">Phone</label><input type="tel" class="form-input"
-          placeholder="+91 XXXXX XXXXX"></div>
-      <div class="form-group"><label class="form-label">Service Required</label><select class="form-select">
-          <option value="">Select a service</option>
-          <option>PEB Design & Engineering</option>
-          <option>Fabrication & Manufacturing</option>
-          <option>Installation & Erection</option>
-          <option>Turnkey Solutions</option>
-          <option>Industrial Shed & Warehouse</option>
-          <option>Pre Engineered Buildings</option>
-          <option>Z & C Purlins</option>
-          <option>Ceiling System</option>
-          <option>Other</option>
-        </select></div>
-      <div class="form-group"><label class="form-label">Message</label><textarea class="form-textarea"
-          placeholder="Describe your project..."></textarea></div>
-      <button class="btn-primary" style="width:100%;justify-content:center;"><i class="fa fa-paper-plane"></i> Submit
-        Request</button>
+      <p class="modal-subtitle">Fill in your details — our team will respond within 24 hours.</p>
+
+      <!-- ✅ FORM START -->
+      <form id="quoteForm" action="https://api.web3forms.com/submit" method="POST">
+
+        <!-- 🔑 Your Access Key -->
+        <input type="hidden" name="access_key" value="ee309306-2133-4194-9889-ae7b6cbce187">
+
+        <input type="hidden" name="subject" value="Quote Request - Aishra Website">
+        <input type="hidden" name="from_name" value="Aishra Quote Form">
+
+        <div class="form-group">
+          <label class="form-label">Full Name</label>
+          <input type="text" name="name" class="form-input" placeholder="Your full name" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Phone Number</label>
+          <input type="tel" name="phone" class="form-input" placeholder="+91 XXXXX XXXXX" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email Address</label>
+          <input type="email" name="email" class="form-input" placeholder="you@example.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Service Required</label>
+          <select name="service" class="form-select" required>
+            <option value="">Select a service</option>
+            <option>PEB Design & Engineering</option>
+            <option>Fabrication & Manufacturing</option>
+            <option>Installation & Erection</option>
+            <option>Turnkey Solutions</option>
+            <option>Industrial Shed & Warehouse</option>
+            <option>Pre Engineered Buildings</option>
+            <option>Z & C Purlins</option>
+            <option>Ceiling System</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Project Details</label>
+          <textarea name="message" class="form-textarea"
+            placeholder="Describe your project — location, size, requirements..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-primary" style="width:100%;justify-content:center;padding:14px;">
+          <i class="fa fa-paper-plane"></i> Submit Request
+        </button>
+
+        <!-- ✅ Result message -->
+        <p id="quoteResult" style="margin-top:10px;"></p>
+
+      </form>
+      <!-- ✅ FORM END -->
+
     </div>
   </div>
   <script>
@@ -344,7 +745,40 @@
         items.forEach(function (item) { if (item && !item.contains(e.target)) item.classList.remove('dd-open'); });
       });
     })();
-  </script>
+  
+    // quoteform
+    const quoteForm = document.getElementById("quoteForm");
+    if (quoteForm) {
+      const quoteResult = document.getElementById("quoteResult");
+      quoteForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const formData = new FormData(quoteForm);
+
+        const response = await fetch(quoteForm.action, {
+          method: "POST",
+          body: formData
+        });
+
+        const data = await response.json();
+
+        if (data.success) {
+          quoteResult.innerHTML = "✅ Quote request sent!";
+          quoteResult.style.color = "green";
+          quoteForm.reset();
+
+          // Optional: close modal after success
+          setTimeout(() => {
+            if (typeof closeModal === 'function') closeModal();
+          }, 1500);
+
+        } else {
+          quoteResult.innerHTML = "❌ Something went wrong!";
+          quoteResult.style.color = "red";
+        }
+      });
+    }
+</script>
 </body>
 
 </html>
